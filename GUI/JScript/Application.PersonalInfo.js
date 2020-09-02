@@ -8,116 +8,110 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 */
 
 (function () {
-    "use strict"
+	"use strict";
 
-    angular.module("application.personalInfoMod", [
-        "utilMod",
-        "appMod",
-        "dictMod",
-        "pageRouteMod"
-    ])
+  angular.module("application.personalInfoMod", [
+		"utilMod",
+		"appMod",
+		"dictMod",
+		"pageRouteMod"
+  ])
 
-    .service("personalInfoServ", function ($timeout, utilServ, dictServ, pageRouteServ) {
-        var self = this;
+  .service("personalInfoServ", function ($timeout, utilServ, dictServ, pageRouteServ) {
+		var self = this;
 
-        self.activeTabIndex = 0;
+		self.activeTabIndex = 0;
 
-        self.tabSelect = function (tabName) {            
-            if (self[tabName].template.length === 0)
-                utilServ.getDialogPreloading(dictServ.dict.msgPreloading.loading);
+		self.tabSelect = function (tabName) {            
+			if (self[tabName].template.length === 0)
+				utilServ.getDialogPreloading(dictServ.dict.msgPreloading.loading);
 
-            if (tabName === "profile")
-            {
-                self.profile.template = pageRouteServ.pageObject.personalInfo.profile.template;
-                self.activeTabIndex = 0;
-            }
-            if (tabName === "homeAddress")
-            {
-                self.homeAddress.template = pageRouteServ.pageObject.personalInfo.homeAddress.template;
-                self.activeTabIndex = 1;
-            }
-            if (tabName === "mailingAddress")
-            {
-                self.mailingAddress.template = pageRouteServ.pageObject.personalInfo.mailingAddress.template;
-                self.activeTabIndex = 2;
-            }
-            if (tabName === "contact")
-            {
-                self.contact.template = pageRouteServ.pageObject.personalInfo.contact.template;
-                self.activeTabIndex = 3;
-            }
-            if (tabName === "emergencyContact")
-            {
-                self.emergencyContact.template = pageRouteServ.pageObject.personalInfo.emergencyContact.template;
-                self.activeTabIndex = 4;
-            }
-        };
+			if (tabName === "profile") {
+				self.profile.template = pageRouteServ.pageObject.personalInfo.profile.template;
+				self.activeTabIndex = 0;
+			}
+			if (tabName === "homeAddress") {
+				self.homeAddress.template = pageRouteServ.pageObject.personalInfo.homeAddress.template;
+				self.activeTabIndex = 1;
+			}
+			if (tabName === "mailingAddress") {
+				self.mailingAddress.template = pageRouteServ.pageObject.personalInfo.mailingAddress.template;
+				self.activeTabIndex = 2;
+			}
+			if (tabName === "contact") {
+				self.contact.template = pageRouteServ.pageObject.personalInfo.contact.template;
+				self.activeTabIndex = 3;
+			}
+			if (tabName === "emergencyContact") {
+				self.emergencyContact.template = pageRouteServ.pageObject.personalInfo.emergencyContact.template;
+				self.activeTabIndex = 4;
+			}
+		};
 
-        self.profile = {
-            template: ""
-        };
+    self.profile = {
+      template: ""
+    };
 
-        self.homeAddress = {
-            template: ""
-        };
+    self.homeAddress = {
+      template: ""
+    };
 
-        self.mailingAddress = {
-            template: ""
-        };
+    self.mailingAddress = {
+      template: ""
+    };
 
-        self.contact = {
-            template: ""
-        };
+    self.contact = {
+      template: ""
+    };
 
-        self.emergencyContact = {
-            template: ""
-        };
-    })
+    self.emergencyContact = {
+      template: ""
+    };
+  })
 
-    .controller("application.personalInfoCtrl", function ($scope, $timeout, $q, utilServ, appServ, dictServ, pageRouteServ, personalInfoServ) {
-        var self = this;
+  .controller("application.personalInfoCtrl", function ($scope, $timeout, $q, utilServ, appServ, dictServ, pageRouteServ, personalInfoServ) {
+		var self = this;
 
-        pageRouteServ.setMenuActive({
-            menuName: (pageRouteServ.pageObject.personalInfo.class + "-menu")
-        });
+		pageRouteServ.setMenuActive({
+			menuName: (pageRouteServ.pageObject.personalInfo.class + "-menu")
+		});
 
-        self.init = function () {
-            if (appServ.isUser && appServ.getUserInfo.applicationStatus === "WA")
-            {
-                self.setValue().then(function () {
-                    appServ.showPreloading = false;
+		self.init = function () {
+			if (appServ.isUser && appServ.getUserInfo.applicationStatus === "WA") {
+				self.setValue().then(function () {
+					appServ.showPreloading = false;
 
-                    self.showForm = true;
-                    self.resetValue();
+					self.showForm = true;
+					self.resetValue();
                     
-                    personalInfoServ.tabSelect("profile");
-                });
-            }
-            else
-                self.showForm = false;
-        };
+					personalInfoServ.tabSelect("profile");
+				});
+			}
+			else
+				self.showForm = false;
+		};
 
-        self.setValue = function () {
-            var deferred = $q.defer();
+		self.setValue = function () {
+			var deferred = $q.defer();
 
-            self.isFormChanged = false;
-            self.showForm = false;
+			self.isFormChanged = false;
+			self.showForm = false;
 
-            deferred.resolve();
+			deferred.resolve();
 
-            return deferred.promise;
-        };
+			return deferred.promise;
+		};
 
-        self.resetValue = function () {
-            utilServ.gotoTopPage();
-        };
+		self.resetValue = function () {
+			utilServ.gotoTopPage();
+		};
 
-        $timeout(function () {
-            self.init();
-        }, appServ.timeoutInit);
-    })
+		$timeout(function () {
+			self.init();
+		}, appServ.timeoutInit);
+  })
 
-    .run(function ($rootScope, personalInfoServ) {
-        $rootScope.$personalInfoServ = personalInfoServ;
-    })
+  .run(function ($rootScope, personalInfoServ) {
+    $rootScope.$personalInfoServ = personalInfoServ;
+  });
 })();

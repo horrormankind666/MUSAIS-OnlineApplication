@@ -198,13 +198,13 @@ form .required:after,
 
 .dialog-preloading-wheel {
   /*
-    width: 128px;
-    height: 128px;
-    background: url(../Image/DialogPreloading.gif) no-repeat center center;
-    border: 0px;
-    padding: 50px 0px 0px 0px;
-    text-align: center;
-    */
+	width: 128px;
+	height: 128px;
+	background: url(../Image/DialogPreloading.gif) no-repeat center center;
+	border: 0px;
+	padding: 50px 0px 0px 0px;
+	text-align: center;
+	*/
   border: 5px solid #F3F3F3;
   border-top: 5px solid #000000;
   border-radius: 50%;
