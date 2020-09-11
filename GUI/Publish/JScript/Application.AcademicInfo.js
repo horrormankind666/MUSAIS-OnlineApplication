@@ -8,88 +8,85 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 */
 
 (function () {
-    "use strict"
+	"use strict";
 
-    angular.module("application.academicInfoMod", [
-        "utilMod",
-        "appMod",
-        "dictMod",
-        "pageRouteMod"
-    ])
+  angular.module("application.academicInfoMod", [
+		"utilMod",
+		"appMod",
+		"dictMod",
+		"pageRouteMod"
+  ])
 
-    .service("academicInfoServ", function ($timeout, utilServ, dictServ, pageRouteServ) {
-        var self = this;
+  .service("academicInfoServ", function ($timeout, utilServ, dictServ, pageRouteServ) {
+		var self = this;
 
-        self.activeTabIndex = 0;
+		self.activeTabIndex = 0;
 
-        self.tabSelect = function (tabName) {
-            if (self[tabName].template.length === 0)
-                utilServ.getDialogPreloading(dictServ.dict.msgPreloading.loading);
+		self.tabSelect = function (tabName) {
+			if (self[tabName].template.length === 0)
+				utilServ.getDialogPreloading(dictServ.dict.msgPreloading.loading);
 
-            if (tabName === "curEdu")
-            {
-                self.curEdu.template = pageRouteServ.pageObject.academicInfo.curEdu.template;
-                self.activeTabIndex = 0;
-            }
-            if (tabName === "englishProficiency")
-            {
-                self.englishProficiency.template = pageRouteServ.pageObject.academicInfo.englishProficiency.template;
-                self.activeTabIndex = 1;
-            }
-        };
+			if (tabName === "curEdu") {
+				self.curEdu.template = pageRouteServ.pageObject.academicInfo.curEdu.template;
+				self.activeTabIndex = 0;
+			}
+			if (tabName === "englishProficiency") {
+				self.englishProficiency.template = pageRouteServ.pageObject.academicInfo.englishProficiency.template;
+				self.activeTabIndex = 1;
+			}
+		};
 
-        self.curEdu = {
-            template: ""
-        };
+		self.curEdu = {
+			template: ""
+		};
 
-        self.englishProficiency = {
-            template: ""
-        };
-    })
+		self.englishProficiency = {
+			template: ""
+		};
+  })
 
-    .controller("application.academicInfoCtrl", function ($scope, $timeout, $q, utilServ, appServ, dictServ, pageRouteServ, academicInfoServ) {
-        var self = this;
+  .controller("application.academicInfoCtrl", function ($scope, $timeout, $q, utilServ, appServ, dictServ, pageRouteServ, academicInfoServ) {
+		var self = this;
 
-        pageRouteServ.setMenuActive({
-            menuName: (pageRouteServ.pageObject.academicInfo.class + "-menu")
-        });
+		pageRouteServ.setMenuActive({
+			menuName: (pageRouteServ.pageObject.academicInfo.class + "-menu")
+		});
 
-        self.init = function () {
-            if (appServ.isUser && appServ.getUserInfo.applicationStatus === "WA")
-            {
-                self.setValue().then(function () {
-                    appServ.closeDialogPreloading();
+		self.init = function () {
+			if (appServ.isUser && appServ.getUserInfo.applicationStatus === "WA") {
+				self.setValue().then(function () {
+					appServ.closeDialogPreloading();
 
-                    self.showForm = true;
-                    self.resetValue();
-                    academicInfoServ.tabSelect("curEdu");
-                });
-            }
-            else
-                self.showForm = false;
-        };
+					self.showForm = true;
+					self.resetValue();
+					academicInfoServ.tabSelect("curEdu");
+				});
+			}
+			else
+				self.showForm = false;
+		};
 
-        self.setValue = function () {
-            var deferred = $q.defer();
+		self.setValue = function () {
+			var deferred = $q.defer();
 
-            self.isFormChanged = false;
-            self.showForm = false;
+			self.isFormChanged = false;
+			self.showForm = false;
 
-            deferred.resolve();
+			deferred.resolve();
 
-            return deferred.promise;
-        };
+			return deferred.promise;
+		};
 
-        self.resetValue = function () {
-            utilServ.gotoTopPage();
-        };
+		self.resetValue = function () {
+			utilServ.gotoTopPage();
+		};
 
-        $timeout(function () {
-            self.init();
-        }, appServ.timeoutInit);
-    })
+		$timeout(function () {
+			self.init();
+		}, appServ.timeoutInit);
+  })
 
-    .run(function ($rootScope, academicInfoServ) {
-        $rootScope.$academicInfoServ = academicInfoServ;
-    })
+  .run(function ($rootScope, academicInfoServ) {
+    $rootScope.$academicInfoServ = academicInfoServ;
+  });
 })();

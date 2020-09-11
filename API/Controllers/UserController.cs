@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๘/๐๖/๒๕๖๑>
-Modify date : <๒๙/๐๖/๒๕๖๑>
+Modify date : <๐๙/๐๙/๒๕๖๓>
 Description : <คอนโทลเลอร์ข้อมูลผู้ใช้งาน>
 =============================================
 */
@@ -10,8 +10,10 @@ Description : <คอนโทลเลอร์ข้อมูลผู้ใ�
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 using Newtonsoft.Json;
 using API.Models;
@@ -55,7 +57,7 @@ namespace API.Controllers
 				if (!String.IsNullOrEmpty(packageOld))
 				{
 					packageOldDecode = ss.DecodeBase64String(packageOld).Split('.');
-					userId   = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[0]));
+					userId = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[0]));
 					username = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[1]));
 					password = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[2]));
 				}
@@ -88,26 +90,26 @@ namespace API.Controllers
 			if (!String.IsNullOrEmpty(package))
 			{
 				try
-				{ 
+				{
 					packageDecode = ss.DecodeBase64String(package).Split('.');
 					action = ss.DecodeBase64String(ss.StringReverse(packageDecode[packageDecode.GetLength(0) - 1]));
 
 					if (action.Equals("signin"))
 					{
-						username    = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						password    = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+						password = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("info"))
 					{
-						userId      = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode  = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("requestPassword"))
 					{
-						username    = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode  = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
 					}
 				}
 				catch
@@ -154,6 +156,94 @@ namespace API.Controllers
 			}
 
 			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(dt));
+		}
+
+		[Route("GetTermServiceConsent")]
+		[HttpGet]
+		public HttpResponseMessage GetTermServiceConsent(string package = "")
+		{
+			StudentService.StudentService ss = new StudentService.StudentService();
+			string[] packageDecode = null;
+			string cookieValue = String.Empty;
+			string userId = String.Empty;
+			string termServiceType = String.Empty;
+
+			if (!String.IsNullOrEmpty(package))
+			{
+				try
+				{
+					packageDecode = ss.DecodeBase64String(package).Split('.');
+					cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+
+					if (iUtil.CompareCookie(iUtil.cookieName, cookieValue))
+					{
+						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						termServiceType = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
+					}
+				}
+				catch
+				{
+				}
+			}
+
+			DataTable dt = API.Models.User.GetTermServiceConsent(userId, termServiceType).Tables[0];
+
+			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(dt));
+		}
+
+		[Route("SetTermServiceConsent")]
+		[HttpPost]
+		public HttpResponseMessage SetTermServiceConsent()
+		{
+			string userId = String.Empty;
+			string termServiceType = String.Empty;
+			StringBuilder xmlData = new StringBuilder();
+
+			try
+			{
+				dynamic json = GetJSONFromRequest();
+				string package = json["package"];			
+				
+				StudentService.StudentService ss = new StudentService.StudentService();
+				string[] packageDecode = null;
+				string cookieValue = String.Empty;
+
+				if (!String.IsNullOrEmpty(package))
+				{
+					packageDecode = ss.DecodeBase64String(package).Split('.');
+					cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+					
+					if (iUtil.CompareCookie(iUtil.cookieName, cookieValue))
+					{
+						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						termServiceType = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
+					}
+				}
+			}
+			catch
+			{
+			}
+
+			if (!String.IsNullOrEmpty(userId) && !String.IsNullOrEmpty(termServiceType))
+			{
+				xmlData.AppendFormat(
+					"<table>" +
+					"<row>" +
+					"<studentId>{0}</studentId>" +
+					"<termType>{1}</termType>" +
+					"<termStatus>Y</termStatus>" +
+					"<ip>{2}</ip>" +
+					"<createdBy>{3}</createdBy>" +
+					"</row>" +
+					"</table>", userId, termServiceType, iUtil.GetIP(), userId
+				);
+			}
+
+			DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.infinityConnectionString, "sp_stdSetStudentTermService",
+				new SqlParameter("@xmlData", (!String.IsNullOrEmpty(xmlData.ToString()) ? xmlData.ToString() : null))
+			);
+
+			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(ds.Tables[0]));
 		}
 	}
 }

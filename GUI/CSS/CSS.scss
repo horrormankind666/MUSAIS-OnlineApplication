@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๐๔/๐๖/๒๕๖๑>
-Modify date : <๐๓/๑๐/๒๕๖๒>
+Modify date : <๑๑/๐๙/๒๕๖๓>
 Description : <Style Sheet จัดรูปการแสดงผล>
 =============================================
 */
@@ -234,6 +234,9 @@ a.unlink {
 .bootstrap-dialog.modal {
 	top: 80px;
 }
+.text-underline {
+	text-decoration: underline !important;
+}
 /* ========================================== */
 .inputbox,
 .inputcalendar,
@@ -286,34 +289,48 @@ form .required:after,
 	font-size: 16px;
 	font-weight: 300;
 }
+body.modal-open {
+	padding-right: 0 !important;
+}
 .modal-backdrop {
-	background: #FFFFFF;
+	//background: #FFFFFF;
+}
+.modal-backdrop.in {
+	filter: alpha(opacity=50);
+	opacity: .5;
 }
 .modal-dialog form .form-row:first-child .required:after,
 .modal-dialog .form .form-row:first-child .required:after {
 	top: 4px;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-	.form .form-col.input-col .select2-container .inputbox 	{
+	.form .form-col.input-col .select2-container .inputbox {
 		line-height: 35px;
 	}
+
 	.form .form-col.input-col .clearselect {
 		line-height: 33px;
 	}
+
 	::i-block-chrome,
 	.form .form-col.input-col .select2-container .inputbox {
 		line-height: 35px;
 	}
+
 	::i-block-chrome,
 	form .required:after,
 	.form .required:after {
 		top: 10px !important;
 	}
+
 	::i-block-chrome,
 	.modal-dialog form .form-row:first-child .required:after,
 	.modal-dialog .form .form-row:first-child .required:after {
 		top: 5px !important;
 	}
+}
+.dialog-preloading-container .lang {
+	color: #FFFFFF !important;
 }
 .dialog-preloading-wheel {
 	/*
@@ -560,6 +577,20 @@ form .required:after,
 	border: none;
 	min-height: 39px;
 }
+.btn-dark {
+	color: #FFFFFF;
+	background-color: #343A40;
+	border-color: #343A40;
+}
+.btn-dark:hover {
+	color: #fff;
+	background-color: #23272B;
+	border-color: #1D2124;
+}
+.btn-dark:focus, .btn-dark.focus {
+	box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
+}
+
 /* ========================================== */
 main header nav.navbar .hbg {
 	background: #1D4F91;
@@ -774,7 +805,7 @@ main section .panel-col.col-view .view {
   padding: 0px 0px 10px 0px;
 }
 main section .panel-col.col-view .view .panel .page-heading {
-  padding: 10px 10px 0px 10px;    
+  padding: 10px 10px 5px 10px;    
 }
 main section .panel-col.col-view .view .panel .page-heading .panel-title {
 	display: block;
@@ -795,8 +826,12 @@ main section .panel-col.col-view .view .panel .panel-heading .panel-title .navig
   width: 106px;
 }
 main footer {
-  background: #B0C4B8;
-  border-top: 5px solid #9FC71C;
+	background: #B0C4B8;
+	border-top: 5px solid #9FC71C;
+	background-image: url('../Image/MUSAIS.Logo.png');
+	background-position: bottom right;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 main footer .container {
   padding-top: 10px;
@@ -820,7 +855,7 @@ main footer.slideleftactive {
 main section .panel-col.col-view:not(.slideleftactive),
 main footer:not(.slideleftactive) {
   padding-left: 0px;
-  text-align: center;
+  text-align: left;
 }
 @media screen and (max-width: $screen-max-width) {
 	main header nav.navbar .navbar-header .panel-col.col-systemisname {
@@ -897,7 +932,7 @@ main footer:not(.slideleftactive) {
   border-bottom: 1px dashed #ddd;
 }
 .signin .panel .page-body {
-  padding-top: 6px;
+  padding-top: 8px;
 }
 .signin .form .form-col.input-col .inputbox {
   height: 40px;
@@ -940,7 +975,7 @@ main footer:not(.slideleftactive) {
   border-bottom: 1px dashed #ddd;
 }
 .createnewaccount .panel .page-body {
-  padding-top: 6px;
+  padding-top: 8px;
 }
 .createnewaccount .addedit.dialogin .form-col.label-col {
   width: 354px;
@@ -967,7 +1002,7 @@ main footer:not(.slideleftactive) {
   border-bottom: 1px dashed #ddd;
 }
 .activateaccount .panel .page-body {
-  padding-top: 6px;
+  padding-top: 8px;
 }
 .activateaccount .view .btn-command .btn {
   width: 100%;
@@ -1180,3 +1215,108 @@ main footer:not(.slideleftactive) {
 @media screen and (max-width: 630px) {
   @include iform-responsive(false, ".application.applicationview uib-accordion .panel-group .panel .panel-body");
 }
+/* ========================================== */
+/* term service consent form*/
+.termserviceconsent .panel {
+	width: 768px;
+	padding: 0px 10px 0px 10px;
+	margin: 0 auto;
+}
+.termserviceconsent .panel .page-heading {
+	border-bottom: 1px dashed #ddd;
+}
+.termserviceconsent .panel .page-body {
+	padding-top: 8px;
+}
+.termserviceconsent .panel .page-body,
+.privacypolicy .modal-dialog .modal-body {
+	white-space: normal;
+	word-wrap: break-word;
+	word-spacing: -1px;
+	text-align: left;
+	text-justify: distribute;
+	letter-spacing: 0;
+}
+.termserviceconsent .panel .page-body .error-list ul li,
+.privacypolicy .modal-dialog .modal-body .error-list ul li {
+	padding-left: 35px;
+}
+.termserviceconsent .panel .page-body .error-list ul li:before,
+.privacypolicy .modal-dialog .modal-body .error-list ul li:before {
+	color: #000000;
+	left: 15px;
+	line-height: 0.9;
+	content: "\2022";
+	font-size: 32px;
+}
+.termserviceconsent .panel .page-body .alert .error-list ul li:before,
+.privacypolicy .modal-dialog .modal-body .error-list ul li:before {
+	color: inherit;
+}
+.termserviceconsent .panel .page-body .alert,
+.privacypolicy .modal-dialog .modal-body .alert {
+	padding: 10px 20px 10px 20px;
+}
+@media screen and (max-width: 787px) {
+	.termserviceconsent .panel {
+		width: 100% !important;
+	}
+}
+.privacypolicy .modal-dialog {
+	max-width: 780px;
+}
+.privacypolicy .modal-dialog .modal-body {
+	padding: 0 10px 10px 10px !important;
+}
+/*
+.termserviceconsent .navigation ul li.colshow {
+	white-space: normal;
+	word-break: normal;
+	word-wrap: normal;
+}
+*/
+	/* ========================================== */
+	/* banner privacy policy consent*/
+	/*
+#privacypolicyconsent-banner {
+	bottom: 0 !important;
+	width: 100%;
+	background: #3B4045;
+	padding: 10px;
+	z-index: 10010 !important;
+}
+#privacypolicyconsent-banner .link {
+	color: #FFFFFF !important;
+}
+.privacypolicy .modal-dialog {
+	max-width: 768px;
+}
+#privacypolicyconsent-banner,
+.privacypolicy .dialogin .panel-body {
+	white-space: normal;
+	word-wrap: break-word;
+	word-spacing: -1px;
+	text-align: left;
+	text-justify: distribute;	
+	letter-spacing: 0;
+}
+.privacypolicy .dialogin .panel-body .error-list ul li {
+	padding-left: 30px;
+}
+
+.privacypolicy .dialogin .panel-body .error-list ul li:before {
+	color: #000000;
+	left: 15px;
+	line-height: 0.85;
+	content: "\2022";
+	font-size: 32px;
+}
+
+.privacypolicy .dialogin .panel-body .alert {
+	border: 1px solid #EEEEEE;
+	border-left-color: #CE4844;
+	border-left-width: 5px;
+	border-radius: 3px;
+	padding: 10px 20px 10px 20px;
+}
+*/

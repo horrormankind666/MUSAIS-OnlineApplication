@@ -113,6 +113,7 @@
     <Content Include="JScript\MaritalStatus.js" />
     <Content Include="JScript\Relationship.js" />
     <Content Include="JScript\StudentCategory.js" />
+    <Content Include="JScript\TermServiceConsent.PrivacyPolicy.js" />
     <Content Include="JScript\TOEFLType.js" />
     <Content Include="JScript\University.js" />
     <Content Include="JScript\User.ActivateAccount.js" />
@@ -139,6 +140,8 @@
     <Content Include="Module\Application.PersonalInfo.Profile.html" />
     <Content Include="Module\Application.StudentInfo.html" />
     <Content Include="Module\Application.UploadDocuments.html" />
+    <Content Include="Module\PrivacyPolicy.html" />
+    <Content Include="Module\TermServiceConsent.PrivacyPolicy.html" />
     <Content Include="Module\User.ActivateAccount.html" />
     <Content Include="Module\User.CreateNewAccount.html" />
     <Content Include="Module\User.EditAccount.html" />
@@ -165,7 +168,7 @@
     <Content Include="Module\Application.AcademicInfo.EnglishProficiency.html" />
     <Content Include="Module\Application.View.html" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\MUSAIS.OnlineApplication.pubxml" />
+    <None Include="Properties\PublishProfiles\MUSAIS.OnlineApplication.GUI.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

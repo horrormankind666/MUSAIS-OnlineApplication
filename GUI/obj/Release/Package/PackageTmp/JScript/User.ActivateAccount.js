@@ -8,136 +8,134 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 */
 
 (function () {
-    "use strict"
+	"use strict";
 
-    angular.module("user.activateAccountMod", [
-        "base64",
-        "utilMod",
-        "appMod",
-        "dictMod"
-    ])
+	angular.module("user.activateAccountMod", [
+		"base64",
+		"utilMod",
+		"appMod",
+		"dictMod"
+	])
 
-    .controller("user.activateAccountCtrl", function ($scope, $timeout, $q, $filter, $routeParams, utilServ, appServ, dictServ) {
-        var self = this;
-                
-        self.init = function () {
-            if (appServ.isUser === false)
-            {
-                self.setValue().then(function () {
-                    appServ.closeDialogPreloading();
+	.controller("user.activateAccountCtrl", function ($scope, $timeout, $q, $filter, $routeParams, utilServ, appServ, dictServ) {
+		var self = this;
 
-                    self.resetValue();
-                    self.showForm = true;
+		self.init = function () {
+			if (appServ.isUser === false) {
+				self.setValue().then(function () {
+					appServ.closeDialogPreloading();
 
-                    self.isUser = (self.formValue.userId ? true : false);
-                    self.isSaveStatus = (self.formValue.verifiedStatus === "Y" ? true : false);
+					self.resetValue();
+					self.showForm = true;
 
-                    if (!self.isUser)
-                        utilServ.dialogError(appServ.getLabel(["authen", "userNotFound"]), function (e) {
-                        });                                                   
-                });
-            }
-            else
-                self.showForm = false;
-        };
-        
-        self.formField = {
-            userId: "",
-            email: "",
-            fullName: "",
-            gender: "",
-            nationality: "",
-            country: ""
-        };
+					self.isUser = (self.formValue.userId ? true : false);
+					self.isSaveStatus = (self.formValue.verifiedStatus === "Y" ? true : false);
 
-        self.formValue = {
-            userId: "",
-            verifiedStatus: "",
-            email: "",
-            fullName: "",
-            gender: "",
-            nationality: "",
-            country: ""
-        };
+					if (!self.isUser)
+						utilServ.dialogError(appServ.getLabel(["authen", "userNotFound"]), function (e) {
+						});
+				});
+			}
+			else
+				self.showForm = false;
+		};
 
-        self.setValue = function () {
-            var deferred = $q.defer();
+		self.formField = {
+			userId: "",
+			email: "",
+			fullName: "",
+			gender: "",
+			nationality: "",
+			country: ""
+		};
 
-            self.showForm = false;            
-            self.isUser = false;
-            self.isSaveStatus = false;
+		self.formValue = {
+			userId: "",
+			verifiedStatus: "",
+			email: "",
+			fullName: "",
+			gender: "",
+			nationality: "",
+			country: ""
+		};
 
-            appServ.getListUser({
-                action: "getdata",
-                params: [
-                    "",
-                    ("package=" + appServ.setPackage([$routeParams.userId, $routeParams.verifyCode, "info"]))
-                ].join("&")
-            }).then(function (result) {
-                var dr = {};
+		self.setValue = function () {
+			var deferred = $q.defer();
 
-                if (result.length > 0)
-                    dr = result[0];
+			self.showForm = false;
+			self.isUser = false;
+			self.isSaveStatus = false;
 
-                self.formValue = {
-                    userId: (dr.id ? dr.id : ""),
-                    verifiedStatus: (dr.verifiedStatus ? dr.verifiedStatus : ""),
-                    email: (dr.email ? dr.email : ""),
-                    fullName: (dr.fullName ? dr.fullName : ""),
-                    gender: (dr.genderFullNameEN ? dr.genderFullNameEN : ""),
-                    nationality: (dr.nationalityNameEN ? dr.nationalityNameEN : ""),
-                    country: (dr.countryNameEN ? dr.countryNameEN : "")
-                };
+			appServ.getListUser({
+				action: "getdata",
+				params: [
+					"",
+					("package=" + appServ.setPackage([$routeParams.userId, $routeParams.verifyCode, "info"]))
+				].join("&")
+			}).then(function (result) {
+				var dr = {};
 
-                $timeout(function () {
-                    deferred.resolve();
-                }, 0);
-            });
-                                    
-            return deferred.promise;
-        };
+				if (result.length > 0)
+					dr = result[0];
 
-        self.resetValue = function () {
-            self.formField.email = self.formValue.email;
-            self.formField.fullName = self.formValue.fullName;
-            self.formField.gender = self.formValue.gender;
-            self.formField.nationality = $filter("capitalize")(self.formValue.nationality);
-            self.formField.country = self.formValue.country.toUpperCase();
+				self.formValue = {
+					userId: (dr.id ? dr.id : ""),
+					verifiedStatus: (dr.verifiedStatus ? dr.verifiedStatus : ""),
+					email: (dr.email ? dr.email : ""),
+					fullName: (dr.fullName ? dr.fullName : ""),
+					gender: (dr.genderFullNameEN ? dr.genderFullNameEN : ""),
+					nationality: (dr.nationalityNameEN ? dr.nationalityNameEN : ""),
+					country: (dr.countryNameEN ? dr.countryNameEN : "")
+				};
 
-            utilServ.gotoTopPage();
-        };
+				$timeout(function () {
+					deferred.resolve();
+				}, 0);
+			});
 
-        self.getValue = function () {
-            var result = {
-                "package": appServ.setPackage([$routeParams.userId, $routeParams.verifyCode]),
-                "verifyStatus": "Y",
-                "by": $routeParams.userId
-            };
+			return deferred.promise;
+		};
 
-            return result;
-        };
+		self.resetValue = function () {
+			self.formField.email = self.formValue.email;
+			self.formField.fullName = self.formValue.fullName;
+			self.formField.gender = self.formValue.gender;
+			self.formField.nationality = $filter("capitalize")(self.formValue.nationality);
+			self.formField.country = self.formValue.country.toUpperCase();
 
-        self.saveChange = {
-            action: function (index) {
-                utilServ.dialogConfirm(appServ.getLabel(["activateAccount", "confirm"]), function (result) {
-                    if (result)
-                    {
-                        var data = self.getValue();
-                        
-                        appServ.save.action({
-                            url: (utilServ.getURLAPI(appServ.pathAPI) + "User/PutData"),
-                            method: "PUT",
-                            data: [data]
-                        }).then(function (result) {
-                            self.isSaveStatus = result.status;
-                        });
-                    }
-                });
-            }
-        };
+			utilServ.gotoTopPage();
+		};
 
-        $timeout(function () {
-            self.init();
-        }, appServ.timeoutInit);
-    })
+		self.getValue = function () {
+			var result = {
+				"package": appServ.setPackage([$routeParams.userId, $routeParams.verifyCode]),
+				"verifyStatus": "Y",
+				"by": $routeParams.userId
+			};
+
+			return result;
+		};
+
+		self.saveChange = {
+			action: function (index) {
+				utilServ.dialogConfirm(appServ.getLabel(["activateAccount", "confirm"]), function (result) {
+					if (result) {
+						var data = self.getValue();
+
+						appServ.save.action({
+							url: (utilServ.getURLAPI(appServ.pathAPI) + "User/PutData"),
+							method: "PUT",
+							data: [data]
+						}).then(function (result) {
+							self.isSaveStatus = result.status;
+						});
+					}
+				});
+			}
+		};
+
+		$timeout(function () {
+			self.init();
+		}, appServ.timeoutInit);
+	});
 })();

@@ -133,5 +133,18 @@ namespace API.Models
 
 			return ds;
 		}
+
+		public static DataSet GetTermServiceConsent(
+			string userId,
+			string termServiceType
+)
+		{
+			DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.bermudaConnectionString, "sp_sexGetUserTermServiceConsent",
+				new SqlParameter("@userId",						userId),
+				new SqlParameter("@termServiceType",	termServiceType)
+			);
+
+			return ds;
+		}
 	}
 }
