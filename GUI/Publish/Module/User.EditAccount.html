@@ -1,0 +1,229 @@
+﻿<div class="{{ $pageRouteServ.pageObject.editAccount.class }}"
+	ng-controller="user.editAccounCtrl as usreda"
+	ng-show="$appServ.isUser">
+	<div class="addedit dialogin">
+		<div class="panel noborder">
+			<div class="alert alert-warning text-left">
+				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['editAccount', 'infoImportantRecommendMsg'])"></div>
+			</div>
+			<div class="panel-body page-body" ng-show="usreda.showForm">
+				<div class="form">
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'username']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value="" ng-model="usreda.formField.username" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.username
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['editAccount', 'save', 'usernameError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['user', 'table', 'newPassword']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox class="form-control inputbox font-en regular black f10" type="password" value="" ng-model="usreda.formField.password" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.password
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'passwordError', '1']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['user', 'table', 'verifyNewPassword']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox class="form-control inputbox font-en regular black f10" type="password" value="" ng-model="usreda.formField.verifyPassword" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.verifyPassword1
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'verifyPasswordError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.verifyPassword2
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'verifyPasswordError', '2']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'titlePrefix']) }}
+						</div>
+						<div class="form-col input-col">
+							<ui-select theme="select2" on-select="usreda.onSelectTitlePrefix($item)" ng-model="usreda.formField.titlePrefixSelected.selected">
+								<ui-select-match>
+									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
+										{{ ($select.selected.initials[$utilServ.lang] ? ($select.selected.initials[$utilServ.lang] | capitalize) : "") }}
+									</span>
+									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="usreda.formField.titlePrefixSelected.selected = undefined">
+										<i class="fa fa-times-circle"></i>
+									</span>
+								</ui-select-match>
+								<ui-select-choices repeat="titlePrefix in (usreda.formField.titlePrefix | filter: { selectFilter: $select.search })">
+									<span class="{{ $appServ.labelStyle }} regular f10">
+										{{ (titlePrefix.initials[$utilServ.lang] | capitalize) }}
+									</span>
+								</ui-select-choices>
+							</ui-select>
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.titlePrefix
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'titlePrefixError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'firstName']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usreda.formField.firstName" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.firstName
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'firstNameError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['user', 'table', 'middleName']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usreda.formField.middleName" />
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'lastName']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usreda.formField.lastName" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.lastName
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'lastNameError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'gender']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="radio-row" ng-repeat="gender in usreda.formField.gender">
+								<ul>
+									<li class="radio-col input-col">
+										<input icheck class="inputradio" type="radio" name="accountgender" value="{{ gender.id }}" ng-model="usreda.formField.genderSelected" />
+									</li>
+									<li class="radio-col label-col">
+										<div class="label-tab">
+											<span class="{{ $appServ.labelStyle }} regular black f10">
+												{{ (gender.name[$utilServ.lang] | capitalize) }}
+											</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.gender
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'genderError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['user', 'table', 'email']) }}
+						</div>
+						<div class="form-col input-col">
+							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value="" ng-model="usreda.formField.email" />
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.email1
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'emailError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger"
+								ng-show="
+									usreda.formValidate.showSaveError &&
+									!usreda.formValidate.isValid.email2
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['createNewAccount', 'save', 'emailError', '2']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-left nopadding-top nopadding-bottom"></div>
+						<div class="form-col input-col text-left nopadding-top nopadding-bottom">
+							<div class="btn-command">
+								<span>
+									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+										ng-disabled="!usreda.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(usreda.isFormChanged ? usreda.saveChange.action() : '')
+										">
+										{{ $appServ.getLabel(['save']) }}
+									</a>
+									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+										ng-disabled="!usreda.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(usreda.isFormChanged ? usreda.resetValue() : '')
+										">
+										{{ $appServ.getLabel(['discard']) }}
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

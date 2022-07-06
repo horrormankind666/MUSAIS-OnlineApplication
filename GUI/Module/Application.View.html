@@ -1,0 +1,1319 @@
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.applicationView.class }}"
+	ng-controller="application.viewCtrl as appviw"
+	ng-show="
+		$appServ.isUser &&
+		$appServ.getUserInfo.applicationStatus != 'WA'
+	">
+	<div class="dialogin">
+		<div class="panel noborder">
+			<div
+				class="panel-body page-body"
+				ng-show="appviw.showForm">
+				<uib-accordion close-others="false">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[1].isOpen"
+						ng-init="group[1].isOpen = true">
+						<uib-accordion-heading>
+							<div class="navigation">
+								<ul>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<i class="fa" ng-class="$utilServ.getClassIconAccordionHeading(group[1].isOpen)"></i>
+										</span>
+									</li>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel($pageRouteServ.pageObject.studentInfo.nameDict) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</uib-accordion-heading>
+						<div class="view">
+							<div class="iform">
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'studentCategory']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left">
+										<div class="{{ $appServ.labelStyle }} regular black f10">
+											{{ (appviw.dataRow.studentCategoryOther ? appviw.dataRow.studentCategoryOther : appviw.dataRow.studentCategoryName[$utilServ.lang]) | capitalize }}
+										</div>
+										<div
+											class="{{ $appServ.labelStyle }} regular black f10"
+											ng-show="appviw.dataRow.studentCategorySpecify">
+											{{ appviw.dataRow.studentCategorySpecify | capitalize }}
+										</div>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'table', 'homeUniversity']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'country']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.countryHomeUniversityName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'university']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ (appviw.dataRow.universityOther ? appviw.dataRow.universityOther : appviw.dataRow.universityName[$utilServ.lang]) | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'muFaculty']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.facultyName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'department']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.department"></span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'periodStayMU']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											From {{ appviw.dataRow.semesterDateStart }} TO {{ appviw.dataRow.semesterDateEnd }}
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[2].isOpen"
+						ng-init="group[2].isOpen = true">
+						<uib-accordion-heading>
+							<div class="navigation">
+								<ul>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<i class="fa" ng-class="$utilServ.getClassIconAccordionHeading(group[2].isOpen)"></i>
+										</span>
+									</li>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel($pageRouteServ.pageObject.personalInfo.nameDict) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</uib-accordion-heading>
+						<div class="view">
+							<div class="iform">
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'personalInfo', 'profile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead"></div>
+									<div class="iform-col input-col text-left"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['user', 'table', 'fullName']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.fullName }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'birthDate']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.birthDate }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['user', 'table', 'gender']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.genderFullName[$utilServ.lang]  | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['user', 'table', 'nationality']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.nationalityName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'maritalStatus']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.maritalStatusName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'passportNumber']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.passportNumber }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'passportExpiryDate']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.passportExpiryDate }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'personalInfo', 'homeAddress']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'address']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.homeAddress"></span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'district']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">:</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.homeDistrict }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'city']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.homeCity }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'province']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.homeProvince }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'postalCode']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.homePostalCode }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'country']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.countryHomeName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'personalInfo', 'mailingAddress']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'address']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.mailingAddress"></span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'district']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.mailingDistrict }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'city']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.mailingCity }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'province']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.mailingProvince }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'postalCode']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.mailingPostalCode }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'country']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.countryMailingName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'personalInfo', 'contact']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'contactTel']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.contactTel }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['user', 'table', 'email']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.email }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'personalInfo', 'emergencyContact']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'emergencyName']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyName }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'relationship']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.relationshipName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'mailingAddress']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.emergencyMailingAddress"></span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'district']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyMailingDistrict }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'city']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyMailingCity }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'province']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyMailingProvince }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'postalCode']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyMailingPostalCode }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'country']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.countryMailingEmergencyName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'homeTel']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyHomeTel }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'officeTel']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyOfficeTel }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'mobile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyMobile }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'fax']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">:</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyFax }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['user', 'table', 'email']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.emergencyEmail }}
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[3].isOpen"
+						ng-init="group[3].isOpen = true">
+						<uib-accordion-heading>
+							<div class="navigation">
+								<ul>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<i class="fa" ng-class="$utilServ.getClassIconAccordionHeading(group[3].isOpen)"></i>
+										</span>
+									</li>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel($pageRouteServ.pageObject.academicInfo.nameDict) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</uib-accordion-heading>
+						<div class="view">
+							<div class="iform">
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">
+											{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead"></div>
+									<div class="iform-col input-col text-left"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'eduInstitution']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.curEduInstitution }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'eduFaculty']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.curEduFaculty }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'discipline']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.disciplineName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'educationalBackground']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.educationalBackgroundName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'yearStudy']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.curEduYear }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop20">
+										<span class="{{ $appServ.labelStyle }} bold blue f9">\
+											{{ $appServ.getLabel(['application', 'academicInfo', 'englishProficiency']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop20"></div>
+									<div class="iform-col input-col text-left paddingTop20"></div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'TOEFLScore']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.TOEFLScore }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'TOEFLType']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.TOEFLTypeName[$utilServ.lang] | capitalize }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'IELTSResult']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ appviw.dataRow.IELTSResult }}
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['others']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.englishNativeOther"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[4].isOpen"
+						ng-init="group[4].isOpen = true">
+						<uib-accordion-heading>
+							<div class="navigation">
+								<ul>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<i class="fa" ng-class="$utilServ.getClassIconAccordionHeading(group[4].isOpen)"></i>
+										</span>
+									</li>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel($pageRouteServ.pageObject.uploadDocuments.nameDict) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</uib-accordion-heading>
+						<div class="view">
+							<div
+								class="iform"
+								ng-init="url = ($utilServ.getURLAPI($appServ.pathAPI) + 'ViewFile.aspx/?ver=' + $utilServ.dateTimeOnURL + '&f=')">
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'passportFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.passportFile) })"
+												ng-show="appviw.dataRow.passportFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'facePhotographsFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.facePhotographsFile) })"
+												ng-show="appviw.dataRow.facePhotographsFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'transcriptFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">:</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.transcriptFile) })"
+												ng-show="appviw.dataRow.transcriptFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'travelInsuranceFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.travelInsuranceFile) })"
+												ng-show="appviw.dataRow.travelInsuranceFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">{{ $appServ.getLabel(['application', 'table', 'letterHomeUniversityFile']) }}</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.letterHomeUniversityFile) })"
+												ng-show="appviw.dataRow.letterHomeUniversityFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'curriculumVitaeFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.curriculumVitaeFile) })"
+												ng-show="appviw.dataRow.curriculumVitaeFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'TOEFLIELTSFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.TOEFLIELTSFile) })"
+												ng-show="appviw.dataRow.TOEFLIELTSFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="iform-row">
+									<div class="iform-col label-col text-right colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'letterIntentFile']) }}
+										</span>
+									</div>
+									<div class="iform-col label-col text-center colhead paddingTop5">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
+									</div>
+									<div class="iform-col input-col text-left paddingTop5">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<a
+												class="link"
+												href="javascript:void(0)"
+												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.letterIntentFile) })"
+												ng-show="appviw.dataRow.letterIntentFile">
+												{{ $appServ.getLabel(['view']) }}
+											</a>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[5].isOpen"
+						ng-init="group[5].isOpen = true">
+						<uib-accordion-heading>
+							<div class="navigation">
+								<ul>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											<i class="fa" ng-class="$utilServ.getClassIconAccordionHeading(group[5].isOpen)"></i>
+										</span>
+									</li>
+									<li class="text-left">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel($pageRouteServ.pageObject.declaration.nameDict) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</uib-accordion-heading>
+						<div class="form vertical">
+							<div class="form-row">
+								<div class="form-col label-col">
+									<div class="panel-table">
+										<div class="panel-row">
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationA', 'order']) }}
+												</span>
+											</div>
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationA', 'subject']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-col input-col">
+										<div class="panel-table">
+											<div class="panel-row">
+												<div class="panel-col"></div>
+												<div class="panel-col">
+													<span class="{{ $appServ.labelStyle }} regular black f10">
+														{{ appviw.dataRow.declarationAName }}
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="form-row"
+								ng-show="appviw.dataRow.declarationA == 'Y'">
+								<div class="form-col label-col">
+									<div class="panel-table">
+										<div class="panel-row">
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationB', 'order']) }}
+												</span>
+											</div>
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationB', 'subject', 'declarationAYes']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-col input-col">
+										<div class="panel-table">
+											<div class="panel-row">
+												<div class="panel-col"></div>
+												<div class="panel-col">
+													<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.declarationB"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="form-row"
+								ng-show="appviw.dataRow.declarationE">
+								<div class="form-col label-col">
+									<div class="panel-table">
+										<div class="panel-row">
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationE', 'order']) }}
+												</span>
+											</div>
+											<div class="panel-col">
+												<span class="{{ $appServ.labelStyle }} bold black f10">
+													{{ $appServ.getLabel(['application', 'table', 'declarationE', 'subject']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-col input-col">
+										<div class="panel-table">
+											<div class="panel-row">
+												<div class="panel-col"></div>
+												<div class="panel-col">
+													<span
+														class="{{ $appServ.labelStyle }} regular black f10"
+														ng-show="appviw.dataRow.declarationE === 'N'">
+														{{ appviw.dataRow.declarationEName }}
+													</span>
+													<span class="{{ $appServ.labelStyle }} regular black f10" ng-show="appviw.dataRow.declarationE === 'Y'" ng-bind-html="appviw.dataRow.declarationESpecify"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>                    
+				</uib-accordion>
+			</div>
+		</div>
+	</div>
+</div>

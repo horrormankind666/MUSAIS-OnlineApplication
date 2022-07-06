@@ -1,0 +1,50 @@
+﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class }}"
+	ng-controller="application.personalInfoCtrl as appper"
+	ng-show="
+		$appServ.isUser &&
+		$appServ.getUserInfo.applicationStatus == 'WA'
+	">
+	<div class="panel noborder">
+		<div class="panel-heading page-heading">
+			<div class="panel-title">
+				<div class="panel-table">
+					<div class="panel-row">
+						<div class="panel-col col-navigation">
+							<div class="navigation">
+								<ul>
+									<li class="colshow text-left">
+										<span class="{{ $appServ.labelStyle }} bold black f8">
+											{{ $appServ.getLabel(['application', 'personalInfo']) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-warning text-left">
+			<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantRecommendMsg'])"></div>
+		</div>
+		<div class="panel-body page-body">
+			<uib-tabset active="$personalInfoServ.activeTabIndex">
+				<uib-tab index="0" heading="{{ $appServ.getLabel(['application', 'personalInfo', 'profile']) }}" ng-click="$personalInfoServ.tabSelect('profile')">
+					<div ng-include="$personalInfoServ.profile.template"></div>
+				</uib-tab>
+				<uib-tab index="1" heading="{{ $appServ.getLabel(['application', 'personalInfo', 'homeAddress']) }}" ng-click="$personalInfoServ.tabSelect('homeAddress')">
+					<div ng-include="$personalInfoServ.homeAddress.template"></div>
+				</uib-tab>
+				<uib-tab index="2" heading="{{ $appServ.getLabel(['application', 'personalInfo', 'mailingAddress']) }}" ng-click="$personalInfoServ.tabSelect('mailingAddress')">
+					<div ng-include="$personalInfoServ.mailingAddress.template"></div>
+				</uib-tab>
+				<uib-tab index="3" heading="{{ $appServ.getLabel(['application', 'personalInfo', 'contact']) }}" ng-click="$personalInfoServ.tabSelect('contact')">
+					<div ng-include="$personalInfoServ.contact.template"></div>
+				</uib-tab>
+				<uib-tab index="4" heading="{{ $appServ.getLabel(['application', 'personalInfo', 'emergencyContact']) }}" ng-click="$personalInfoServ.tabSelect('emergencyContact')">
+					<div ng-include="$personalInfoServ.emergencyContact.template"></div>
+				</uib-tab>
+			</uib-tabset>
+		</div>
+	</div>
+</div>

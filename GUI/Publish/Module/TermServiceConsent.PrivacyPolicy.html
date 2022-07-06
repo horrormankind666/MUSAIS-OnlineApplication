@@ -1,0 +1,45 @@
+﻿<div class="{{ $pageRouteServ.pageObject.termServiceConsent.class + ' ' + $pageRouteServ.pageObject.termServiceConsent.privacyPolicy.class }}"
+	ng-controller="termServiceConsent.privacyPolicyCtrl as tscppc"
+	ng-show="
+		$appServ.isUser &&
+		!$appServ.isActionAgreePrivacyPolicy
+	">
+	<div class="addedit dialogin">
+		<div class="panel noborder">
+			<div class="panel-heading page-heading">
+				<div class="panel-title">
+					<div class="panel-table">
+						<div class="panel-row">
+							<div class="panel-col col-navigation">
+								<div class="navigation">
+									<ul>
+										<li class="colshow">
+											<span class="{{ $appServ.labelStyle }} bold black f5">
+												{{ $appServ.getLabel(['privacyPolicy']) }}
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-body page-body" ng-show="tscppc.showForm">
+				<!--
+				<div class="{{ $appServ.labelStyle }} text-center bold blue f7">
+					Consent Form for Use and Disclosure of Student Information
+				</div>
+				-->
+				<div ng-include="tscppc.template"></div>				
+				<div class="btn-command text-center paddingTop10">
+					<button class="btn btn-primary" ng-click="tscppc.saveChange.action()">
+						<span class="{{ $appServ.labelStyle }} regular white f11">
+							{{ $appServ.getLabel(['agree']) }}
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

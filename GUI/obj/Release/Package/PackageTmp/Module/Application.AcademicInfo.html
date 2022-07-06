@@ -1,0 +1,41 @@
+﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class }}"
+	ng-controller="application.academicInfoCtrl as appaca"
+	ng-show="
+		$appServ.isUser &&
+		$appServ.getUserInfo.applicationStatus == 'WA'
+	">
+	<div class="panel noborder">
+		<div class="panel-heading page-heading">
+			<div class="panel-title">
+				<div class="panel-table">
+					<div class="panel-row">
+						<div class="panel-col col-navigation">
+							<div class="navigation">
+								<ul>
+									<li class="colshow text-left">
+										<span class="{{ $appServ.labelStyle }} bold black f8">
+											{{ $appServ.getLabel(['application', 'academicInfo']) }}
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-warning text-left">
+			<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantRecommendMsg'])"></div>
+		</div>
+		<div class="panel-body page-body">
+			<uib-tabset active="$academicInfoServ.activeTabIndex">
+				<uib-tab index="0" heading="{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu']) }}" ng-click="$academicInfoServ.tabSelect('curEdu')">
+					<div ng-include="$academicInfoServ.curEdu.template"></div>
+				</uib-tab>
+				<uib-tab index="1" heading="{{ $appServ.getLabel(['application', 'academicInfo', 'englishProficiency']) }}" ng-click="$academicInfoServ.tabSelect('englishProficiency')">
+					<div ng-include="$academicInfoServ.englishProficiency.template"></div>
+				</uib-tab>
+			</uib-tabset>
+		</div>
+	</div>
+</div>

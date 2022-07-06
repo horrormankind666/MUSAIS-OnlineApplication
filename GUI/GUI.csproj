@@ -1,0 +1,224 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D90A4449-3F5A-46D5-966B-94D4F127A283}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineApplication</RootNamespace>
+    <AssemblyName>OnlineApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CookieConsentInit.js" />
+    <Content Include="CSS\CSS.css">
+      <DependentUpon>CSS.scss</DependentUpon>
+    </Content>
+    <Content Include="CSS\CSS.min.css">
+      <DependentUpon>CSS.css</DependentUpon>
+    </Content>
+    <Content Include="FileUpload\NoFile.png" />
+    <Content Include="Image\BGHeader.png" />
+    <Content Include="Image\DialogPreloading.gif" />
+    <Content Include="Image\iCheckMinimal.png" />
+    <Content Include="Image\Label.png" />
+    <Content Include="Image\MUIcon.png" />
+    <Content Include="Image\Preloading.gif" />
+    <Content Include="Image\PreloadingInline.gif" />
+    <Content Include="index.html" />
+    <Content Include="index.js" />
+    <Content Include="JScript\Application.AcademicInfo.CurEdu.js" />
+    <Content Include="JScript\Application.AcademicInfo.EnglishProficiency.js" />
+    <Content Include="JScript\Application.AcademicInfo.js" />
+    <Content Include="JScript\Application.Declaration.js" />
+    <Content Include="JScript\Application.js" />
+    <Content Include="JScript\Application.PersonalInfo.Contact.js" />
+    <Content Include="JScript\Application.PersonalInfo.EmergencyContact.js" />
+    <Content Include="JScript\Application.PersonalInfo.HomeAddress.js" />
+    <Content Include="JScript\Application.PersonalInfo.js" />
+    <Content Include="JScript\Application.PersonalInfo.MailingAddress.js" />
+    <Content Include="JScript\Application.PersonalInfo.Profile.js" />
+    <Content Include="JScript\Application.StudentInfo.js" />
+    <Content Include="JScript\Application.UploadDocuments.js" />
+    <Content Include="JScript\Application.View.js" />
+    <Content Include="JScript\Discipline.js" />
+    <Content Include="JScript\EducationalBackground.js" />
+    <Content Include="JScript\Faculty.js" />
+    <Content Include="JScript\MaritalStatus.js" />
+    <Content Include="JScript\Relationship.js" />
+    <Content Include="JScript\StudentCategory.js" />
+    <Content Include="JScript\TermServiceConsent.PrivacyPolicy.js" />
+    <Content Include="JScript\TOEFLType.js" />
+    <Content Include="JScript\University.js" />
+    <Content Include="JScript\User.ActivateAccount.js" />
+    <Content Include="JScript\AppUtil.js" />
+    <Content Include="JScript\Country.js" />
+    <Content Include="JScript\User.CreateNewAccount.js" />
+    <Content Include="JScript\Dictionary.js" />
+    <Content Include="JScript\Gender.js" />
+    <Content Include="JScript\Nationality.js" />
+    <Content Include="JScript\PageRoute.js" />
+    <Content Include="JScript\User.EditAccount.js" />
+    <Content Include="JScript\User.RequestPassword.js" />
+    <Content Include="JScript\User.SignIn.js" />
+    <Content Include="JScript\TitlePrefix.js" />
+    <Content Include="JScript\YearStudy.js" />
+    <Content Include="Module\Application.AcademicInfo.CurEdu.html" />
+    <Content Include="Module\Application.AcademicInfo.html" />
+    <Content Include="Module\Application.Declaration.html" />
+    <Content Include="Module\Application.PersonalInfo.Contact.html" />
+    <Content Include="Module\Application.PersonalInfo.EmergencyContact.html" />
+    <Content Include="Module\Application.PersonalInfo.HomeAddress.html" />
+    <Content Include="Module\Application.PersonalInfo.html" />
+    <Content Include="Module\Application.PersonalInfo.MailingAddress.html" />
+    <Content Include="Module\Application.PersonalInfo.Profile.html" />
+    <Content Include="Module\Application.StudentInfo.html" />
+    <Content Include="Module\Application.UploadDocuments.html" />
+    <Content Include="Module\PrivacyPolicy.html" />
+    <Content Include="Module\TermServiceConsent.PrivacyPolicy.html" />
+    <Content Include="Module\User.ActivateAccount.html" />
+    <Content Include="Module\User.CreateNewAccount.html" />
+    <Content Include="Module\User.EditAccount.html" />
+    <Content Include="Module\User.RequestPassword.html" />
+    <Content Include="Module\User.SignIn.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Font\Pridi-Bold.ttf" />
+    <Content Include="Font\Pridi-ExtraLight.ttf" />
+    <Content Include="Font\Pridi-Light.ttf" />
+    <Content Include="Font\Pridi-Medium.ttf" />
+    <Content Include="Font\Pridi-Regular.ttf" />
+    <Content Include="Font\Pridi-SemiBold.ttf" />
+    <Content Include="Image\Untitled-1.psd" />
+    <Content Include="Module\Application.AcademicInfo.EnglishProficiency.html" />
+    <Content Include="Module\Application.View.html" />
+    <Content Include="CSS\CSS.scss" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\MUSAIS.OnlineApplication.GUI.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52944</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3001/OnlineApplication</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

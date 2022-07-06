@@ -1,0 +1,132 @@
+﻿<div class="{{ $pageRouteServ.pageObject.activateAccount.class }}"
+    ng-controller="user.activateAccountCtrl as usraca"
+    ng-show="!$appServ.isUser">
+    <div class="dialogin">
+        <div class="panel noborder">
+            <div class="panel-heading page-heading">
+                <div class="panel-title">
+                    <div class="panel-table">
+                        <div class="panel-row">
+                            <div class="panel-col col-navigation">
+                                <div class="navigation">
+                                    <ul>
+								        <li class="colshow">
+                                            <span class="{{ $appServ.labelStyle }} bold black f5">
+                                                {{ $appServ.getLabel(['activateAccount']) }}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-success text-left" ng-show="usraca.isSaveStatus">
+	            <div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['activateAccount', 'infoImportantSuccessMsg'])"></div>
+            </div>
+            <div class="panel-body page-body" ng-show="usraca.showForm">
+                <div class="view" ng-show="!usraca.isSaveStatus">
+                    <div class="iform">
+                        <div class="iform-row">
+                            <div class="iform-col label-col text-right colhead">
+						        <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    {{ $appServ.getLabel(['user', 'table', 'email']) }}
+                                </span>
+                            </div>
+                            <div class="iform-col label-col text-center colhead">
+						        <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    :
+                                </span>
+                            </div>
+                            <div class="iform-col input-col text-left">
+						        <span class="{{ $appServ.labelStyle }} regular black f9">
+                                    {{ usraca.formField.email }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="iform-row">
+						    <div class="iform-col label-col text-right colhead paddingTop20">
+						        <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    {{ $appServ.getLabel(['user', 'table', 'fullName']) }}
+                                </span>
+						    </div>
+						    <div class="iform-col label-col text-center colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    :
+                                </span>
+						    </div>
+						    <div class="iform-col input-col text-left paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} regular black f9">
+                                    {{ usraca.formField.fullName }}
+                                </span>
+						    </div>
+                        </div>
+                        <div class="iform-row">
+						    <div class="iform-col label-col text-right colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    {{ $appServ.getLabel(['user', 'table', 'gender']) }}
+                                </span>
+						    </div>
+						    <div class="iform-col label-col text-center colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    :
+                                </span>
+						    </div>
+						    <div class="iform-col input-col text-left paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} regular black f9">
+                                    {{ usraca.formField.gender }}
+                                </span>
+						    </div>
+                        </div>
+                        <div class="iform-row paddingTop10">
+						    <div class="iform-col label-col text-right colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    {{ $appServ.getLabel(['user', 'table', 'nationality']) }}
+                                </span>
+						    </div>
+						    <div class="iform-col label-col text-center colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    :
+                                </span>
+						    </div>
+						    <div class="iform-col input-col text-left paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} regular black f9">
+                                    {{ usraca.formField.nationality }}
+                                </span>
+						    </div>
+                        </div>
+                        <div class="iform-row paddingTop10">
+						    <div class="iform-col label-col text-right colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    {{ $appServ.getLabel(['user', 'table', 'countryUniversity']) }}
+                                </span>
+						    </div>
+						    <div class="iform-col label-col text-center colhead paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} bold black f9">
+                                    :
+                                </span>
+						    </div>
+						    <div class="iform-col input-col text-left paddingTop20">
+							    <span class="{{ $appServ.labelStyle }} regular black f9">
+                                    {{ usraca.formField.country }}
+                                </span>
+						    </div>
+                        </div>
+                    </div>
+                    <div class="btn-command" ng-show="usraca.isUser">
+                        <span>
+					        <a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-secondary nomargin-left" href="javascript:void(0)"
+                                ng-click="
+                                    $utilServ.doBlur($event);
+                                    usraca.saveChange.action()
+                                ">
+                                {{ $appServ.getLabel(['activateAccount', 'activate']) }}
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

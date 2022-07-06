@@ -1,0 +1,481 @@
+﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.uploadDocuments.class }}"
+	ng-controller="application.uploadDocumentsCtrl as appupd"
+	ng-show="
+		$appServ.isUser &&
+		$appServ.getUserInfo.applicationStatus == 'WA'
+	">
+	<div class="addedit dialogin">
+		<div class="panel noborder">
+			<div class="panel-heading page-heading">
+				<div class="panel-title">
+					<div class="panel-table">
+						<div class="panel-row">
+							<div class="panel-col col-navigation">
+								<div class="navigation">
+									<ul>
+										<li class="colshow text-left">
+											<span class="{{ $appServ.labelStyle }} bold black f8">
+												{{ $appServ.getLabel(['application', 'uploadDocuments']) }}
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="alert alert-warning text-left">
+				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantRecommendMsg'])"></div>
+			</div>
+			<div class="panel-body page-body" ng-show="appupd.showForm">
+				<div class="form">
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'passportFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentPassport=($pageRouteServ.pageObject.uploadDocuments.class + '-passportfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.passportFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentPassport + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentPassport + '-absolutefile' }}" name="{{ idContentPassport + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.passportFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.passportFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.passportFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} f11">
+								<div class="regular gray">
+									{{ $appServ.getLabel(['application', 'table', 'passportFile', 'format']) }}
+								</div>
+								<div class="light muted">
+									{{ $appServ.getLabel(['application', 'table', 'passportFile', 'description']) }}
+								</div>
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('passportFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('passportFile')
+									"
+									ng-show="appupd.isView.passportFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'facePhotographsFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentFacePhotographs=($pageRouteServ.pageObject.uploadDocuments.class + '-facephotographsfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.facePhotographsFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentFacePhotographs + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentFacePhotographs + '-absolutefile' }}" name="{{ idContentFacePhotographs + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.facePhotographsFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.facePhotographsFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.facePhotographsFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} f11">
+								<div class="regular gray">
+									{{ $appServ.getLabel(['application', 'table', 'facePhotographsFile', 'format']) }}
+								</div>
+								<div class="light muted">
+									{{ $appServ.getLabel(['application', 'table', 'facePhotographsFile', 'description']) }}
+								</div>
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('facePhotographsFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('facePhotographsFile')
+									"
+									ng-show="appupd.isView.facePhotographsFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'travelInsuranceFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentTravelInsurance=($pageRouteServ.pageObject.uploadDocuments.class + '-travelinsurancefile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.travelInsuranceFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentTravelInsurance + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentTravelInsurance + '-absolutefile' }}" name="{{ idContentTravelInsurance + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.travelInsuranceFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.travelInsuranceFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.travelInsuranceFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} f11">
+								<div class="regular gray">
+									{{ $appServ.getLabel(['application', 'table', 'travelInsuranceFile', 'format']) }}
+								</div>
+								<div class="light muted">
+									{{ $appServ.getLabel(['application', 'table', 'travelInsuranceFile', 'description']) }}
+								</div>
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('travelInsuranceFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('travelInsuranceFile')
+									"
+									ng-show="appupd.isView.travelInsuranceFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['application', 'table', 'transcriptFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentTranscript=($pageRouteServ.pageObject.uploadDocuments.class + '-transcriptfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.transcriptFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentTranscript + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentTranscript + '-absolutefile' }}" name="{{ idContentTranscript + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.transcriptFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.transcriptFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.transcriptFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} regular gray f11">
+								{{ $appServ.getLabel(['application', 'table', 'transcriptFile', 'format']) }}
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('transcriptFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('transcriptFile')
+									"
+									ng-show="appupd.isView.transcriptFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['application', 'table', 'letterHomeUniversityFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentLetterHomeUniversity=($pageRouteServ.pageObject.uploadDocuments.class + '-letterhomeuniversityfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.letterHomeUniversityFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentLetterHomeUniversity + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentLetterHomeUniversity + '-absolutefile' }}" name="{{ idContentLetterHomeUniversity + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterHomeUniversityFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterHomeUniversityFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterHomeUniversityFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} regular gray f11">
+								{{ $appServ.getLabel(['application', 'table', 'letterHomeUniversityFile', 'format']) }}
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('letterHomeUniversityFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('letterHomeUniversityFile')
+									"
+									ng-show="appupd.isView.letterHomeUniversityFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['application', 'table', 'curriculumVitaeFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentCurriculumVitae=($pageRouteServ.pageObject.uploadDocuments.class + '-curriculumvitaefile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.curriculumVitaeFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentCurriculumVitae + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentCurriculumVitae + '-absolutefile' }}" name="{{ idContentCurriculumVitae + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.curriculumVitaeFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.curriculumVitaeFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.curriculumVitaeFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} regular gray f11">
+								{{ $appServ.getLabel(['application', 'table', 'curriculumVitaeFile', 'format']) }}
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('curriculumVitaeFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('curriculumVitaeFile')
+									"
+									ng-show="appupd.isView.curriculumVitaeFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['application', 'table', 'TOEFLIELTSFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentTOEFLIELTS=($pageRouteServ.pageObject.uploadDocuments.class + '-toeflieltsfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.TOEFLIELTSFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentTOEFLIELTS + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentTOEFLIELTS + '-absolutefile' }}" name="{{ idContentTOEFLIELTS + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.TOEFLIELTSFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.TOEFLIELTSFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.TOEFLIELTSFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} regular gray f11">
+								{{ $appServ.getLabel(['application', 'table', 'TOEFLIELTSFile', 'format']) }}
+							</div>
+							<div class="uploadaction paddingTop5 paddingBottom10">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('TOEFLIELTSFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('TOEFLIELTSFile')
+									"
+									ng-show="appupd.isView.TOEFLIELTSFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
+							{{ $appServ.getLabel(['application', 'table', 'letterIntentFile']) }}
+						</div>
+						<div class="form-col input-col">
+							<div class="browsefile" ng-init="idContentLetterIntent=($pageRouteServ.pageObject.uploadDocuments.class + '-letterintentfile')">
+								<div class="input-group">
+									<input enter class="form-control inputbox font-en regular black f10" type="text" readonly="readonly" value="{{ appupd.formField.letterIntentFile }}" />
+									<label class="input-group-addon {{ $appServ.labelStyle }} regular black f10 noborder-left" for="{{ idContentLetterIntent + '-absolutefile' }}">
+										<i class="glyphicon glyphicon-folder-close"></i>
+										<span>
+											&nbsp;{{ $appServ.getLabel(['browse']) }}
+										</span>
+									</label>
+								</div>
+								<input type="file" id="{{ idContentLetterIntent + '-absolutefile' }}" name="{{ idContentLetterIntent + '-absolutefile' }}" />
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterIntentFile1">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '1']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterIntentFile2">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '2']) }}
+								</span>
+							</div>
+							<div class="alert alert-danger" ng-show="!appupd.formValidate.isValid.letterIntentFile3">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'uploadDocuments', 'upload', 'documentError', '3']) }}
+								</span>
+							</div>
+							<div class="description {{ $appServ.labelStyle }} regular gray f11">
+								{{ $appServ.getLabel(['application', 'table', 'letterIntentFile', 'format']) }}
+							</div>
+							<div class="uploadaction paddingTop5">
+								<a class="link marginRight10 {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.upload.action('letterIntentFile')
+									">
+									{{ $appServ.getLabel(['upload']) }}
+								</a>
+								<a class="link {{ $appServ.labelStyle }} regular black f10" href="javascript:void(0)"
+									ng-click="
+										$utilServ.doBlur($event);
+										appupd.view.action('letterIntentFile')
+									"
+									ng-show="appupd.isView.letterIntentFile">
+									{{ $appServ.getLabel(['view']) }}
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

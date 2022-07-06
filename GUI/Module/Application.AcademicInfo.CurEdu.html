@@ -1,0 +1,236 @@
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class + ' ' + $pageRouteServ.pageObject.academicInfo.curEdu.class }}"
+	ng-controller="application.academicInfo.curEduCtrl as appedu"
+	ng-show="
+		$appServ.isUser &&
+		$appServ.getUserInfo.applicationStatus == 'WA'
+	">
+	<div class="addedit dialogin">
+		<div class="panel noborder">
+			<div class="alert alert-info text-left">
+				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'academicInfo', 'curEdu', 'infoImportantRecommendMsg'])"></div>
+			</div>
+			<div
+				class="panel-body page-body"
+				ng-show="appedu.showForm">
+				<div class="form">
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'eduInstitution']) }}
+						</div>
+						<div class="form-col input-col">
+							<input
+								enter
+								textbox
+								class="form-control inputbox font-en regular black f10"
+								type="text"
+								ng-model="appedu.formField.eduInstitution"
+							/>
+							<div
+								class="alert alert-danger"
+								ng-show="
+									appedu.formValidate.showSaveError &&
+									!appedu.formValidate.isValid.eduInstitution
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu', 'save', 'eduInstitutionError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'eduFaculty']) }}
+						</div>
+						<div class="form-col input-col">
+							<input
+								enter
+								textbox
+								class="form-control inputbox font-en regular black f10"
+								type="text"
+								ng-model="appedu.formField.eduFaculty"
+							/>
+							<div
+								class="alert alert-danger"
+								ng-show="
+									appedu.formValidate.showSaveError &&
+									!appedu.formValidate.isValid.eduFaculty
+								">
+								<span class="{{ $appServ.labelStyle}} regular f11">
+									{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu', 'save', 'eduFacultyError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'discipline']) }}
+						</div>
+						<div class="form-col input-col">
+							<ui-select
+								theme="select2"
+								ng-model="appedu.formField.disciplineSelected.selected">
+								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'discipline']) }}">
+									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
+										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
+									</span>
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appedu.formField.disciplineSelected.selected = undefined">
+										<i class="fa fa-times-circle"></i>
+									</span>
+								</ui-select-match>
+								<ui-select-choices repeat="discipline in (appedu.formField.discipline | filter: { selectFilter: $select.search } | orderBy: 'name.EN' | limitTo: $utilServ.uiSelectLimit.show)">
+									<span class="{{ $appServ.labelStyle }} regular f10">
+										{{ (discipline.name[$utilServ.lang] | capitalize) }}
+									</span>
+									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appedu.formField.discipline)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
+											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
+										</a>
+									</div>
+								</ui-select-choices>
+							</ui-select>
+							<div
+								class="alert alert-danger"
+								ng-show="
+									appedu.formValidate.showSaveError &&
+									!appedu.formValidate.isValid.discipline
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu', 'save', 'disciplineError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'educationalBackground']) }}
+						</div>
+						<div class="form-col input-col">
+							<ui-select
+								theme="select2"
+								ng-model="appedu.formField.educationalBackgroundSelected.selected">
+								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'educationalBackground']) }}">
+									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
+										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
+									</span>
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appedu.formField.educationalBackgroundSelected.selected = undefined">
+										<i class="fa fa-times-circle"></i>
+									</span>
+								</ui-select-match>
+								<ui-select-choices repeat="educationalBackground in (appedu.formField.educationalBackground | filter: { selectFilter: $select.search } | orderBy: 'id' | limitTo: $utilServ.uiSelectLimit.show)">
+									<span class="{{ $appServ.labelStyle }} regular f10">
+										{{ (educationalBackground.name[$utilServ.lang] | capitalize) }}
+									</span>
+									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appedu.formField.educationalBackground)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
+											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
+										</a>
+									</div>
+								</ui-select-choices>
+							</ui-select>
+							<div
+								class="alert alert-danger"
+								ng-show="
+									appedu.formValidate.showSaveError &&
+									!appedu.formValidate.isValid.educationalBackground
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu', 'save', 'educationalBackgroundError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
+							{{ $appServ.getLabel(['application', 'table', 'yearStudy']) }}
+						</div>
+						<div class="form-col input-col">
+							<ui-select
+								theme="select2"
+								ng-model="appedu.formField.yearStudySelected.selected">
+								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'yearStudy']) }}">
+									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
+										{{ $select.selected.name ? $select.selected.name : "" }}
+									</span>
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appedu.formField.yearStudySelected.selected = undefined">
+										<i class="fa fa-times-circle"></i>
+									</span>
+								</ui-select-match>
+								<ui-select-choices repeat="yearStudy in (appedu.formField.yearStudy | filter: { selectFilter: $select.search } | orderBy: 'id' | limitTo: $utilServ.uiSelectLimit.show)">
+									<span class="{{ $appServ.labelStyle }} regular f10">
+										{{ yearStudy.name }}
+									</span>
+									<div
+										ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appedu.formField.yearStudy)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
+											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
+										</a>
+									</div>
+								</ui-select-choices>
+							</ui-select>
+							<div
+								class="alert alert-danger"
+								ng-show="
+									appedu.formValidate.showSaveError &&
+									!appedu.formValidate.isValid.yearStudy
+								">
+								<span class="{{ $appServ.labelStyle }} regular f11">
+									{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu', 'save', 'yearStudyError']) }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col nopadding-top nopadding-bottom"></div>
+						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
+							<div class="btn-command">
+								<span>
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
+										ng-disabled="!appedu.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(appedu.isFormChanged ? appedu.saveChange.action() : '')
+										">
+										{{ $appServ.getLabel(['save']) }}
+									</a>
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
+										ng-disabled="!appedu.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(appedu.isFormChanged ? appedu.resetValue() : '')
+										">
+										{{ $appServ.getLabel(['discard']) }}
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

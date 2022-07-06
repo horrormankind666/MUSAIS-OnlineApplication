@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <History>True|2022-05-12T07:52:42.6985497Z;True|2022-05-12T13:24:43.4676899+07:00;True|2022-05-12T13:18:35.1222390+07:00;True|2022-05-12T13:18:23.8891113+07:00;False|2022-05-12T13:17:00.9550060+07:00;False|2022-05-12T13:13:57.4395056+07:00;False|2022-05-12T13:13:31.5372614+07:00;False|2022-05-12T13:05:28.5244823+07:00;False|2022-05-12T13:05:05.9105447+07:00;False|2022-05-12T13:04:20.9752697+07:00;False|2022-05-12T13:04:02.5437036+07:00;False|2022-05-12T13:02:54.4322783+07:00;</History>
+    <_PublishTargetUrl>D:\Programming\MUSAIS\OnlineApplication\GUI\Publish</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/OnlineApplication.dll">
+      <publishTime>05/12/2022 13:24:43</publishTime>
+    </File>
+    <File Include="bin/OnlineApplication.pdb">
+      <publishTime>05/12/2022 13:24:43</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.Process.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.DriveInfo.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Thread.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>04/30/2021 16:12:02</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="CSS/CSS.css">
+      <publishTime>05/12/2022 14:51:32</publishTime>
+    </File>
+    <File Include="CSS/CSS.min.css">
+      <publishTime>05/12/2022 14:51:32</publishTime>
+    </File>
+    <File Include="CSS/CSS.scss">
+      <publishTime>05/12/2022 14:51:32</publishTime>
+    </File>
+    <File Include="FileUpload/NoFile.png">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-Bold.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-ExtraLight.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-Light.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-Medium.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-Regular.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Font/Pridi-SemiBold.ttf">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/BGHeader.png">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/DialogPreloading.gif">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/iCheckMinimal.png">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/Label.png">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/MUIcon.png">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/Preloading.gif">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/PreloadingInline.gif">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="Image/Untitled-1.psd">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>05/12/2022 11:25:34</publishTime>
+    </File>
+    <File Include="index.js">
+      <publishTime>04/30/2021 16:12:01</publishTime>
+    </File>
+    <File Include="JScript/Application.AcademicInfo.CurEdu.js">
+      <publishTime>05/10/2022 17:02:06</publishTime>
+    </File>
+    <File Include="JScript/Application.AcademicInfo.EnglishProficiency.js">
+      <publishTime>05/10/2022 17:06:14</publishTime>
+    </File>
+    <File Include="JScript/Application.AcademicInfo.js">
+      <publishTime>05/10/2022 17:07:35</publishTime>
+    </File>
+    <File Include="JScript/Application.Declaration.js">
+      <publishTime>05/10/2022 17:11:28</publishTime>
+    </File>
+    <File Include="JScript/Application.js">
+      <publishTime>05/10/2022 17:23:55</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.Contact.js">
+      <publishTime>05/10/2022 17:26:06</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.EmergencyContact.js">
+      <publishTime>05/10/2022 17:28:10</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.HomeAddress.js">
+      <publishTime>05/10/2022 17:29:15</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.js">
+      <publishTime>05/10/2022 17:30:33</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.MailingAddress.js">
+      <publishTime>05/10/2022 17:32:10</publishTime>
+    </File>
+    <File Include="JScript/Application.PersonalInfo.Profile.js">
+      <publishTime>05/10/2022 17:33:57</publishTime>
+    </File>
+    <File Include="JScript/Application.StudentInfo.js">
+      <publishTime>05/10/2022 17:36:11</publishTime>
+    </File>
+    <File Include="JScript/Application.UploadDocuments.js">
+      <publishTime>05/10/2022 17:38:36</publishTime>
+    </File>
+    <File Include="JScript/Application.View.js">
+      <publishTime>05/10/2022 17:39:04</publishTime>
+    </File>
+    <File Include="JScript/AppUtil.js">
+      <publishTime>05/10/2022 17:53:05</publishTime>
+    </File>
+    <File Include="JScript/Country.js">
+      <publishTime>05/11/2022 10:00:49</publishTime>
+    </File>
+    <File Include="JScript/Dictionary.js">
+      <publishTime>05/12/2022 12:31:36</publishTime>
+    </File>
+    <File Include="JScript/Discipline.js">
+      <publishTime>05/11/2022 10:02:14</publishTime>
+    </File>
+    <File Include="JScript/EducationalBackground.js">
+      <publishTime>05/11/2022 10:02:30</publishTime>
+    </File>
+    <File Include="JScript/Faculty.js">
+      <publishTime>05/11/2022 10:02:46</publishTime>
+    </File>
+    <File Include="JScript/Gender.js">
+      <publishTime>05/11/2022 10:03:00</publishTime>
+    </File>
+    <File Include="JScript/MaritalStatus.js">
+      <publishTime>05/11/2022 10:03:19</publishTime>
+    </File>
+    <File Include="JScript/Nationality.js">
+      <publishTime>05/11/2022 10:03:30</publishTime>
+    </File>
+    <File Include="JScript/PageRoute.js">
+      <publishTime>05/11/2022 10:10:37</publishTime>
+    </File>
+    <File Include="JScript/Relationship.js">
+      <publishTime>05/11/2022 10:10:52</publishTime>
+    </File>
+    <File Include="JScript/StudentCategory.js">
+      <publishTime>05/11/2022 10:11:13</publishTime>
+    </File>
+    <File Include="JScript/TermServiceConsent.PrivacyPolicy.js">
+      <publishTime>05/12/2022 14:33:27</publishTime>
+    </File>
+    <File Include="JScript/TitlePrefix.js">
+      <publishTime>05/11/2022 10:12:10</publishTime>
+    </File>
+    <File Include="JScript/TOEFLType.js">
+      <publishTime>05/11/2022 10:12:28</publishTime>
+    </File>
+    <File Include="JScript/University.js">
+      <publishTime>05/11/2022 10:13:10</publishTime>
+    </File>
+    <File Include="JScript/User.ActivateAccount.js">
+      <publishTime>05/11/2022 10:13:54</publishTime>
+    </File>
+    <File Include="JScript/User.CreateNewAccount.js">
+      <publishTime>05/11/2022 10:16:20</publishTime>
+    </File>
+    <File Include="JScript/User.EditAccount.js">
+      <publishTime>05/12/2022 14:33:22</publishTime>
+    </File>
+    <File Include="JScript/User.RequestPassword.js">
+      <publishTime>05/11/2022 12:09:07</publishTime>
+    </File>
+    <File Include="JScript/User.SignIn.js">
+      <publishTime>05/12/2022 14:33:17</publishTime>
+    </File>
+    <File Include="JScript/YearStudy.js">
+      <publishTime>05/11/2022 12:10:39</publishTime>
+    </File>
+    <File Include="Module/Application.AcademicInfo.CurEdu.html">
+      <publishTime>05/11/2022 13:40:44</publishTime>
+    </File>
+    <File Include="Module/Application.AcademicInfo.EnglishProficiency.html">
+      <publishTime>05/11/2022 13:46:57</publishTime>
+    </File>
+    <File Include="Module/Application.AcademicInfo.html">
+      <publishTime>05/11/2022 13:48:11</publishTime>
+    </File>
+    <File Include="Module/Application.Declaration.html">
+      <publishTime>05/11/2022 13:58:46</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.Contact.html">
+      <publishTime>05/11/2022 14:03:31</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.EmergencyContact.html">
+      <publishTime>05/12/2022 12:24:20</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.HomeAddress.html">
+      <publishTime>05/11/2022 14:17:36</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.html">
+      <publishTime>05/11/2022 14:18:44</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.MailingAddress.html">
+      <publishTime>05/11/2022 14:24:27</publishTime>
+    </File>
+    <File Include="Module/Application.PersonalInfo.Profile.html">
+      <publishTime>05/11/2022 14:32:55</publishTime>
+    </File>
+    <File Include="Module/Application.StudentInfo.html">
+      <publishTime>05/11/2022 14:48:12</publishTime>
+    </File>
+    <File Include="Module/Application.UploadDocuments.html">
+      <publishTime>05/12/2022 12:48:19</publishTime>
+    </File>
+    <File Include="Module/Application.View.html">
+      <publishTime>05/11/2022 23:12:30</publishTime>
+    </File>
+    <File Include="Module/PrivacyPolicy.html">
+      <publishTime>05/12/2022 11:53:10</publishTime>
+    </File>
+    <File Include="Module/TermServiceConsent.PrivacyPolicy.html">
+      <publishTime>05/12/2022 10:08:23</publishTime>
+    </File>
+    <File Include="Module/User.ActivateAccount.html">
+      <publishTime>05/12/2022 10:13:14</publishTime>
+    </File>
+    <File Include="Module/User.CreateNewAccount.html">
+      <publishTime>05/12/2022 10:26:24</publishTime>
+    </File>
+    <File Include="Module/User.EditAccount.html">
+      <publishTime>05/12/2022 10:35:16</publishTime>
+    </File>
+    <File Include="Module/User.RequestPassword.html">
+      <publishTime>05/12/2022 10:38:45</publishTime>
+    </File>
+    <File Include="Module/User.SignIn.html">
+      <publishTime>05/12/2022 10:41:09</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/12/2022 13:17:00</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

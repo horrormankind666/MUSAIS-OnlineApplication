@@ -1,0 +1,412 @@
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.declaration.class }}"
+	ng-controller="application.declarationCtrl as appdec"
+	ng-show="$appServ.isUser">
+	<div class="addedit dialogin">
+		<div class="panel noborder">
+			<div
+				class="panel-heading page-heading"
+				ng-show="!$applicationServ.isSubmitStatus">
+				<div class="panel-title">
+					<div class="panel-table">
+						<div class="panel-row">
+							<div class="panel-col col-navigation">
+								<div class="navigation">
+									<ul>
+										<li class="colshow text-left">
+											<span class="{{ $appServ.labelStyle }} bold black f8">
+												{{ $appServ.getLabel(['application', 'declaration']) }}
+											</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				class="alert alert-warning text-left"
+				ng-show="!$applicationServ.isSubmitStatus">
+				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantRecommendMsg'])"></div>
+			</div>
+			<div
+				class="alert alert-success text-left"
+				ng-show="$applicationServ.isSubmitStatus">
+				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantSuccessMsg'])"></div>
+			</div>
+			<div
+				class="panel-body page-body"
+				ng-show="appdec.showForm">
+				<div
+					class="form vertical"
+					ng-show="!$applicationServ.isSubmitStatus">
+					<div class="form-row">
+						<div class="form-col label-col">
+							<div class="panel-table">
+								<div class="panel-row">
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationA', 'order']) }}
+										</span>
+									</div>
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationA', 'subject']) }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-col input-col">
+								<div class="panel-table">
+									<div class="panel-row">
+										<div class="panel-col"></div>
+										<div class="panel-col">
+											<div class="radio-row">
+												<ul>
+													<li class="radio-col input-col">
+														<input
+															icheck
+															type="radio"
+															class="inputradio"
+															name="declarationa"
+															value="N"
+															ng-model="appdec.formField.declarationASelected"
+														/>
+													</li>
+													<li class="radio-col label-col">
+														<div class="label-tab">
+															<span class="{{ $appServ.labelStyle }} regular black f10">
+																{{ $appServ.getLabel(['no']) }}
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="radio-row">
+												<ul>
+													<li class="radio-col input-col">
+														<input
+															icheck
+															type="radio"
+															class="inputradio"
+															name="declarationa"
+															value="Y"
+															ng-model="appdec.formField.declarationASelected"
+														/>
+													</li>
+													<li class="radio-col label-col">
+														<div class="label-tab">
+															<span class="{{ $appServ.labelStyle }} regular black f10">
+																{{ $appServ.getLabel(['yes']) }}
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationA
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationAError']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col">
+							<div class="panel-table">
+								<div class="panel-row">
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationB', 'order']) }}
+										</span>
+									</div>
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationB', 'subject']) }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-col input-col">
+								<div class="panel-table">
+									<div class="panel-row">
+										<div class="panel-col"></div>
+										<div class="panel-col">
+											<div class="textareabox {{ appdec.isCheckedDeclarationB == false ? 'disabled' : '' }}">
+												<textarea
+													textbox
+													class="form-control font-en regular black f10"
+													ng-disabled="!appdec.isCheckedDeclarationB"
+													ng-model="appdec.formField.declarationB"
+													ng-blur="appdec.formField.declarationB = (appdec.formField.declarationASelected == 'N' ? '' : appdec.formField.declarationB)">
+												</textarea>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationB
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationBError']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col">
+							<div class="panel-table">
+								<div class="panel-row">
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationE', 'order']) }}
+										</span>
+									</div>
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationE', 'subject']) }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-col input-col">
+								<div class="panel-table">
+									<div class="panel-row">
+										<div class="panel-col"></div>
+										<div class="panel-col">
+											<div class="radio-row">
+												<ul>
+													<li class="radio-col input-col">
+														<input
+															icheck
+															type="radio"
+															class="inputradio"
+															name="declaratione"
+															value="N"
+															ng-model="appdec.formField.declarationESelected"
+														/>
+													</li>
+													<li class="radio-col label-col">
+														<div class="label-tab">
+															<span class="{{ $appServ.labelStyle }} regular black f10">
+																{{ $appServ.getLabel(['no']) }}
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="radio-row">
+												<ul>
+													<li class="radio-col input-col">
+														<input
+															icheck
+															type="radio"
+															class="inputradio"
+															name="declaratione"
+															value="Y"
+															ng-model="appdec.formField.declarationESelected"
+														/>
+													</li>
+													<li class="radio-col label-col">
+														<div class="label-tab">
+															<span class="{{ $appServ.labelStyle }} regular black f10">
+																{{ $appServ.getLabel(['yes']) + ', ' + $appServ.getLabel(['pleaseSpecify']) }}
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<div class="textareabox {{ appdec.isCheckedDeclarationE == false ? 'disabled' : '' }}">
+												<textarea
+													textbox
+													class="form-control font-en regular black f10"
+													ng-disabled="!appdec.isCheckedDeclarationE"
+													ng-model="appdec.formField.declarationE"
+													ng-blur="appdec.formField.declarationE = (appdec.formField.declarationESelected == 'N' ? '' : appdec.formField.declarationE)">
+												</textarea>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationE1
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationEError', '1']) }}
+												</span>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationE2
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationEError', '2']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col">
+							<div class="panel-table">
+								<div class="panel-row">
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationC', 'order']) }}
+										</span>
+									</div>
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationC', 'subject']) }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-col input-col">
+								<div class="panel-table">
+									<div class="panel-row">
+										<div class="panel-col"></div>
+										<div class="panel-col">
+											<div class="checkbox-row">
+												<ul>
+													<li class="checkbox-col input-col">
+														<input
+															icheck
+															type="checkbox"
+															class="inputcheckbox"
+															name="declarationc"
+															ng-model="appdec.formField.declarationCSelected"
+														/>
+													</li>
+												</ul>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationC
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationCError']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col">
+							<div class="panel-table">
+								<div class="panel-row">
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationD', 'order']) }}
+										</span>
+									</div>
+									<div class="panel-col">
+										<span class="{{ $appServ.labelStyle }} regular black f10">
+											{{ $appServ.getLabel(['application', 'table', 'declarationD', 'subject']) }}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="form-col input-col">
+								<div class="panel-table">
+									<div class="panel-row">
+										<div class="panel-col"></div>
+										<div class="panel-col">
+											<div class="checkbox-row">
+												<ul>
+													<li class="checkbox-col input-col">
+														<input
+															icheck
+															type="checkbox"
+															class="inputcheckbox"
+															name="declarationd"
+															ng-model="appdec.formField.declarationDSelected"
+														/>
+													</li>
+												</ul>
+											</div>
+											<div
+												class="alert alert-danger"
+												ng-show="
+													appdec.formValidate.showSaveError &&
+													!appdec.formValidate.isValid.declarationD
+												">
+												<span class="{{ $appServ.labelStyle }} regular f11">
+													{{ $appServ.getLabel(['application', 'declaration', 'save', 'declarationDError']) }}
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="form-col label-col nopadding-top nopadding-bottom"></div>
+						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
+							<div class="btn-command">
+								<span>
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
+										ng-disabled="!appdec.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(appdec.isFormChanged ? appdec.saveChange.action() : '')
+										">
+										{{ $appServ.getLabel(['save']) }}
+									</a>
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
+										ng-disabled="!appdec.isFormChanged"
+										ng-click="
+											$utilServ.doBlur($event);
+											(appdec.isFormChanged ? appdec.resetValue() : '')
+										">
+										{{ $appServ.getLabel(['discard']) }}
+									</a>
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-success"
+										href="javascript:void(0)"
+										ng-click="
+											$utilServ.doBlur($event);
+											appdec.submit.action()
+										">
+										{{ $appServ.getLabel(['submit']) }}
+									</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
