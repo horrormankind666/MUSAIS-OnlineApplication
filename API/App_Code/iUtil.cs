@@ -178,7 +178,7 @@ namespace API {
 			string body
 		) {
 			string sender = "musais@mahidol.ac.th";
-			string password = "kalalandforever";
+			string password = "Kalaland2022";
 
 			MailMessage mail = new MailMessage(sender, receiver);
 			SmtpClient smtp = new SmtpClient();
