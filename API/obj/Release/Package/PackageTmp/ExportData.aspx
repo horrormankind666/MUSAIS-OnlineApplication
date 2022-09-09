@@ -38,8 +38,7 @@
         OnClick="DoExport"
         OnClientClick="doShowProgress(0)"
     />
-    <div
-        style="margin-top:10px;">
+    <div style="margin-top:10px;">
         <asp:Button
             runat="server"
             ID="BtnDownload"

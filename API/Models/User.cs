@@ -181,7 +181,7 @@ namespace API.Models {
 						new SqlParameter("@by", d.by),
 						new SqlParameter("@ip", iUtil.GetIP())
 					);
-
+					/*
 					if (ds.Tables[0].Rows.Count > 0) {
 						DataRow dr = ds.Tables[0].Rows[0];
 
@@ -193,6 +193,7 @@ namespace API.Models {
 
 						dr["mailMessage"] = null;
 					}
+					*/
 				}
 				catch {
 				}
