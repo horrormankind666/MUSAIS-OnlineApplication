@@ -2,12 +2,13 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๒/๐๖/๒๕๖๑>
-Modify date : <๑๘/๐๖/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖๖>
 Description : <คอนโทลเลอร์ข้อมูลสัญชาติและเชื้อชาติ>
 =============================================
 */
 
 using System.Data;
+using System.Data.SqlClient;
 
 namespace API.Models {
 	public class Nationality {
@@ -17,10 +18,14 @@ namespace API.Models {
 			string sortOrderBy,
 			string sortExpression
 		) {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			DataSet ds = ss.GetListNationality(iUtil.infinityConnectionString, keyword, cancelledStatus, sortOrderBy, sortExpression);
+            DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.infinityConnectionString, "sp_perGetListNationality",
+				new SqlParameter("@keyword", keyword),
+				new SqlParameter("@cancelledStatus", cancelledStatus),
+				new SqlParameter("@sortOrderBy", sortOrderBy),
+				new SqlParameter("@sortExpression", sortExpression)
+			);
 
-			return ds;
+            return ds;
 		}
 	}
 }

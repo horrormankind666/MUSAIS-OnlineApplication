@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๒/๐๗/๒๕๖๑>
-Modify date : <๑๒/๐๗/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <โมเดลข้อมูล Discipline>
 =============================================
 */
@@ -20,7 +20,8 @@ namespace API.Models {
 			DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.bermudaConnectionString, "sp_sexGetListDiscipline",
 				new SqlParameter("@cancelledStatus", cancelledStatus),
 				new SqlParameter("@sortOrderBy", sortOrderBy),
-				new SqlParameter("@sortExpression", sortExpression));
+				new SqlParameter("@sortExpression", sortExpression)
+			);
 
 			return ds;
 		}

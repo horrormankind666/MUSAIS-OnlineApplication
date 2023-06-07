@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๒๗/๐๖/๒๕๖๑>
-Modify date : <๐๘/๐๔/๒๕๖๕>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <โมเดลข้อมูลใบสมัคร>
 =============================================
 */
@@ -453,13 +453,10 @@ namespace API.Models {
 			List<Application> data
 		) {
 			string action = String.Empty;
-			string cookieValue = String.Empty;
-			string[] packageDecode = null;
 			string applicationId = String.Empty;
 			string userId = String.Empty;
 			string verifyCode = String.Empty;
 			DataSet ds = new DataSet();
-			StudentService.StudentService ss = new StudentService.StudentService();
 
 			if (method.Equals("POST"))
 				action = "INSERT";
@@ -471,21 +468,21 @@ namespace API.Models {
 				action = "DELETE";
             
 			foreach (var d in data) {
-				try { 
-					packageDecode = ss.DecodeBase64String(d.package).Split('.');
+				try {
+                    string[] packageDecode = iUtil.DecodeBase64String(d.package).Split('.');
 
 					if (action.Equals("INSERT")) {
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("UPDATE")) {
-						cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+						string cookieValue = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
 
 						if (iUtil.CompareCookie(iUtil.cookieName, cookieValue)) {
-							applicationId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
-							userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
-							verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[3]));
+							applicationId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
+							userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
+							verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[3]));
 						}
 					}
 
@@ -584,7 +581,8 @@ namespace API.Models {
 						DataRow dr = ds.Tables[0].Rows[0];
 
 						if (dr["success"].ToString().Equals("Y")) {
-							if (action.Equals("UPDATE") && dr["submitStatus"].ToString().Equals("Y"))
+							if (action.Equals("UPDATE") &&
+								dr["submitStatus"].ToString().Equals("Y"))
 								iUtil.SendMail(dr["mailRecipients"].ToString(), dr["mailSubject"].ToString(), dr["mailMessage"].ToString());
 						}
 

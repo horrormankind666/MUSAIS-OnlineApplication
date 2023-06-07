@@ -298,7 +298,10 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 				},
 				infoImportantSuccessMsg: {
 					TH: "",
+					/*
 					EN: "<span class='f8'>Thank you for create new account.</span><br />We send you an email to make sure it was really you who entered the email address in form. Either click on the link in the email we sent you to verify your account."
+					*/
+					EN: "<span class='f8'>Thank you for create new account.</span><br />Please sign in to online registration.<br /><div class='marginTop10'><a class='link' href='#/SignIn'>Sign In</a></div>"
 				},
 				save: {
 					TH: "",
@@ -698,7 +701,7 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 								"			Please give the name of a contact person, who can be contacted in the event of an emergency and can speak English." +
 								"		</li>" +
 								"		<li>" +
-								"			Make sure that he/ she provides permission before you add his/ her personal information." +
+								"			Make sure that he/she provides permission before you add his/her personal information." +
 								"		</li>" +			
 								"	</ul>" +
 								"</div>"

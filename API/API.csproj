@@ -120,18 +120,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\StudentService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\StudentService\StudentService.disco" />
     <Content Include="SendEmail.aspx" />
     <Content Include="UploadFile.aspx" />
     <Content Include="ViewFile.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Web References\StudentService\StudentService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\iUtil.cs" />
@@ -202,11 +196,6 @@
     <Compile Include="ViewFile.aspx.designer.cs">
       <DependentUpon>ViewFile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web References\StudentService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -225,19 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="https://smartedu.mahidol.ac.th/InfoService/Module/Student/StudentService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\StudentService\</RelPath>
-      <UpdateFromURL>https://smartedu.mahidol.ac.th/InfoService/Module/Student/StudentService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_StudentService_StudentService</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

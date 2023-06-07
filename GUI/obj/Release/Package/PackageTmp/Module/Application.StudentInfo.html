@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.studentInfo.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.studentInfo.class }}"
 	ng-controller="application.studentInfoCtrl as appstd"
 	ng-show="
 		$appServ.isUser &&
@@ -28,7 +29,9 @@
 			<div class="alert alert-warning text-left">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'infoImportantRecommendMsg'])"></div>
 			</div>
-			<div class="panel-body page-body" ng-show="appstd.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="appstd.showForm">
 				<div class="form">
 					<div class="form-row">                        
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
@@ -39,13 +42,23 @@
 								<div class="radio-row">
 									<ul>
 										<li class="radio-col input-col">
-											<input icheck class="inputradio" type="radio" name="studentcategory" value="{{ studentCategory.id }}" ng-model="appstd.formField.studentCategorySelected" />
+											<input
+												icheck
+												type="radio"
+												class="inputradio"
+												name="studentcategory"
+												value="{{ studentCategory.id }}"
+												ng-model="appstd.formField.studentCategorySelected"
+											/>
 										</li>
 										<li class="radio-col label-col">
 											<div class="label-tab">
 												<span class="{{ $appServ.labelStyle }} regular black f10">
-													{{ (studentCategory.name[$utilServ.lang] | capitalize) }}&nbsp;
-													<span class="regular gray f11" ng-show="studentCategory.specify == 'Y'">
+													{{ (studentCategory.name[$utilServ.lang] | capitalize) }}
+													&nbsp;
+													<span
+														class="regular gray f11"
+														ng-show="studentCategory.specify == 'Y'">
 														{{ ' ( ' + $appServ.getLabel(['pleaseSpecify']) + ' )' }}
 													</span>
 												</span>
@@ -53,8 +66,15 @@
 										</li>
 									</ul>
 								</div>
-								<div class="paddingBottom10" ng-show="studentCategory.specify == 'Y'">
-									<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value=""
+								<div
+									class="paddingBottom10"
+									ng-show="studentCategory.specify == 'Y'">
+									<input
+										enter
+										textbox
+										type="text"
+										class="form-control inputbox font-en regular black f10"
+										value=""
 										ng-disabled="!appstd.isCheckedStudentCategorySpecify[studentCategory.id]"
 										ng-if="studentCategory.specify == 'Y'"
 										ng-model="appstd.formField.studentCategorySpecify[studentCategory.id]"
@@ -64,12 +84,20 @@
 							<div class="radio-row">
 								<ul>
 									<li class="radio-col input-col">
-										<input icheck class="inputradio" type="radio" name="studentcategory" value="0" ng-model="appstd.formField.studentCategorySelected" />
+										<input
+											icheck
+											type="radio"
+											class="inputradio"
+											name="studentcategory"
+											value="0"
+											ng-model="appstd.formField.studentCategorySelected"
+										/>
 									</li>
 									<li class="radio-col label-col">
 										<div class="label-tab">
 											<span class="{{ $appServ.labelStyle }} regular black f10">
-												{{ ($appServ.getLabel(['other']) | capitalize) }}&nbsp;
+												{{ ($appServ.getLabel(['other']) | capitalize) }}
+												&nbsp;
 												<span class="regular gray f11">
 													{{ ' ( ' + $appServ.getLabel(['pleaseSpecify']) + ' )' }}
 												</span>
@@ -78,11 +106,17 @@
 									</li>
 								</ul>
 							</div>
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value=""
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								value=""
 								ng-disabled="!appstd.isCheckedStudentCategorySpecify['0']"
 								ng-model="appstd.formField.studentCategorySpecify['0']"
 							/>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.studentCategory1
@@ -91,7 +125,8 @@
 									{{ $appServ.getLabel(['application', 'studentInfo', 'save', 'studentCategoryError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.studentCategory2
@@ -108,12 +143,21 @@
 						</div>
 						<div class="form-col input-col">
 							<div>
-								<ui-select ng-model="appstd.formField.countrySelected.selected" theme="select2" on-select="appstd.onSelectCountry($item)">                                    
+								<ui-select
+									theme="select2"
+									on-select="appstd.onSelectCountry($item)"
+									ng-model="appstd.formField.countrySelected.selected">
 									<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'country']) }}">
 										<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 											{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 										</span>
-										<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appstd.formField.countrySelected.selected = undefined; appstd.onSelectCountry({})">
+										<span
+											clearselect
+											class="clearselect lang font-en regular gray f10"
+											ng-click="
+												appstd.formField.countrySelected.selected = undefined;
+												appstd.onSelectCountry({})
+											">
 											<i class="fa fa-times-circle"></i>
 										</span>
 									</ui-select-match>
@@ -122,7 +166,10 @@
 											{{ (country.name[$utilServ.lang] | capitalize) }}
 										</span>
 										<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appstd.formField.country)">
-											<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+											<a
+												class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+												href="javascript:void(0)"
+												ng-click="$utilServ.getSelectFetchData($select, $event)">
 												{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 											</a>
 										</div>
@@ -130,14 +177,19 @@
 								</ui-select>
 							</div>
 							<div class="paddingTop7 paddingBottom10">
-								<ui-select theme="select2" on-select="appstd.onSelectUniversity($item)"
+								<ui-select
+									theme="select2"
+									on-select="appstd.onSelectUniversity($item)"
 									ng-model="appstd.formField.universitySelected.selected"
 									ng-disabled="appstd.showLoadUniversity">
 									<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'university']) }}">
 										<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 											{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 										</span>
-										<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appstd.formField.universitySelected.selected = undefined">
+										<span
+											clearselect
+											class="clearselect lang font-en regular gray f10"
+											ng-click="appstd.formField.universitySelected.selected = undefined">
 											<i class="fa fa-times-circle"></i>
 										</span>
 									</ui-select-match>                                    
@@ -146,7 +198,10 @@
 											{{ (university.name[$utilServ.lang] | capitalize) }}
 										</span>
 										<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appstd.formField.university)">
-											<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+											<a
+												class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+												href="javascript:void(0)"
+												ng-click="$utilServ.getSelectFetchData($select, $event)">
 												{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 											</a>
 										</div>
@@ -156,12 +211,20 @@
 							<div class="radio-row">
 								<ul>
 									<li class="radio-col input-col">
-										<input icheck class="inputradio" type="radio" name="universityother" value="0" ng-model="appstd.formField.universityOtherSelected" />
+										<input
+											icheck
+											type="radio"
+											class="inputradio"
+											name="universityother"
+											value="0"
+											ng-model="appstd.formField.universityOtherSelected"
+										/>
 									</li>
 									<li class="radio-col label-col">
 										<div class="label-tab">
 											<span class="{{ $appServ.labelStyle }} regular black f10">
-												{{ ($appServ.getLabel(['other']) | capitalize) }}&nbsp;
+												{{ ($appServ.getLabel(['other']) | capitalize) }}
+												&nbsp;
 												<span class="regular gray f11">
 													{{ ' ( ' + $appServ.getLabel(['pleaseSpecify']) + ' )' }}
 												</span>
@@ -170,11 +233,17 @@
 									</li>
 								</ul>
 							</div>
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value=""
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								value=""
 								ng-disabled="!appstd.isCheckedUniversityOther"
 								ng-model="appstd.formField.universityOther"
 							/>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.country
@@ -183,7 +252,8 @@
 									{{ $appServ.getLabel(['application', 'studentInfo', 'save', 'countryError']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.university
@@ -192,7 +262,8 @@
 									{{ $appServ.getLabel(['application', 'studentInfo', 'save', 'universityError']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.universityOther
@@ -208,12 +279,17 @@
 							{{ $appServ.getLabel(['application', 'table', 'muFaculty']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="appstd.formField.facultySelected.selected" theme="select2">
+							<ui-select
+								theme="select2"
+								ng-model="appstd.formField.facultySelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'faculty']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appstd.formField.facultySelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appstd.formField.facultySelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -222,13 +298,17 @@
 										{{ faculty.code + ' : ' + (faculty.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appstd.formField.faculty)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.faculty
@@ -245,13 +325,31 @@
 						</div>
 						<div class="form-col input-col">
 							<div>
-								<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appstd.formField.department.option1" />
+								<input
+									enter
+									textbox
+									type="text"
+									class="form-control inputbox font-en regular black f10"
+									ng-model="appstd.formField.department.option1"
+								/>
 							</div>
 							<div class="paddingTop10">
-								<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appstd.formField.department.option2" />
+								<input
+									enter
+									textbox
+									type="text"
+									class="form-control inputbox font-en regular black f10"
+									ng-model="appstd.formField.department.option2"
+								/>
 							</div>
 							<div class="paddingTop10">
-								<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appstd.formField.department.option3" />
+								<input
+									enter
+									textbox
+									type="text"
+									class="form-control inputbox font-en regular black f10"
+									ng-model="appstd.formField.department.option3"
+								/>
 							</div>
 						</div>
 					</div>
@@ -260,13 +358,22 @@
 							{{ $appServ.getLabel(['application', 'table', 'periodStayMU']) }}
 						</div>
 						<div class="form-col input-col input-daterange">
-							<div datetimerangepicker class="panel-table"
+							<div
+								datetimerangepicker
+								class="panel-table"
 								ng-init="datetimepickerOptions = $appServ.datetimepickerOptions"
 								ng-model="datepickerSemester">
 								<div class="panel-row">
 									<div class="panel-col">
 										<div class="input-group date datefrom">
-											<input enter textbox class="inputcalendar form-control inputbox font-en regular black f10" type="text" value="" ng-model="datepickerSemester.dateFrom" />
+											<input
+												enter
+												textbox
+												type="text"
+												class="inputcalendar form-control inputbox font-en regular black f10"
+												value=""
+												ng-model="datepickerSemester.dateFrom"
+											/>
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-calendar"></i>
 											</span>
@@ -282,7 +389,14 @@
 									</div>
 									<div class="panel-col">
 										<div class="input-group date dateto">
-											<input enter textbox class="inputcalendar form-control inputbox font-en regular black f10" type="text" value="" ng-model="datepickerSemester.dateTo" />
+											<input
+												enter
+												textbox
+												type="text"
+												class="inputcalendar form-control inputbox font-en regular black f10"
+												value=""
+												ng-model="datepickerSemester.dateTo"
+											/>
 											<span class="input-group-addon">
 												<i class="glyphicon glyphicon-calendar"></i>
 											</span>
@@ -293,7 +407,8 @@
 									</div>                                    
 								</div>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appstd.formValidate.showSaveError &&
 									!appstd.formValidate.isValid.semester
@@ -309,7 +424,10 @@
 						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!appstd.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -317,7 +435,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!appstd.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

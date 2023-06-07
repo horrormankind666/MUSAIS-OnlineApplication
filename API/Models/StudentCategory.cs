@@ -14,7 +14,8 @@ namespace API.Models {
 	public class StudentCategory {
 		public static DataSet GetListData(string cancelledStatus) {
 			DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.bermudaConnectionString, "sp_sexGetListStudentCategory",
-				new SqlParameter("@cancelledStatus", cancelledStatus));
+				new SqlParameter("@cancelledStatus", cancelledStatus)
+			);
 
 			return ds;
 		}

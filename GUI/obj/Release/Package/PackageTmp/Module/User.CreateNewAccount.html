@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.createNewAccount.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.createNewAccount.class }}"
 	ng-controller="user.createNewAccountCtrl as usrcna"
 	ng-show="!$appServ.isUser">
 	<div class="addedit dialogin">
@@ -22,21 +23,37 @@
 					</div>
 				</div>
 			</div>
-			<div class="alert alert-warning text-left" ng-show="!usrcna.isSaveStatus">
+			<div
+				class="alert alert-warning text-left"
+				ng-show="!usrcna.isSaveStatus">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['createNewAccount', 'infoImportantRecommendMsg'])"></div>
 			</div>
-			<div class="alert alert-success text-left" ng-show="usrcna.isSaveStatus">
+			<div
+				class="alert alert-success text-left"
+				ng-show="usrcna.isSaveStatus">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['createNewAccount', 'infoImportantSuccessMsg'])"></div>
 			</div>
-			<div class="panel-body page-body" ng-show="usrcna.showForm">
-				<div class="form" ng-show="!usrcna.isSaveStatus">
+			<div
+				class="panel-body page-body"
+				ng-show="usrcna.showForm">
+				<div
+					class="form"
+					ng-show="!usrcna.isSaveStatus">
 					<div class="form-row">
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
 							{{ $appServ.getLabel(['user', 'table', 'email']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value="" ng-model="usrcna.formField.email" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								value=""
+								ng-model="usrcna.formField.email"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.email1
@@ -45,7 +62,8 @@
 									{{ $appServ.getLabel(['createNewAccount', 'save', 'emailError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.email2
@@ -61,8 +79,16 @@
 							{{ $appServ.getLabel(['user', 'table', 'password']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="password" value="" ng-model="usrcna.formField.password" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="password"
+								class="form-control inputbox font-en regular black f10"
+								value=""
+								ng-model="usrcna.formField.password"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.password1
@@ -71,7 +97,8 @@
 									{{ $appServ.getLabel(['createNewAccount', 'save', 'passwordError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.password2
@@ -87,8 +114,16 @@
 							{{ $appServ.getLabel(['user', 'table', 'verifyPassword']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="password" value="" ng-model="usrcna.formField.verifyPassword" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="password"
+								class="form-control inputbox font-en regular black f10"
+								value=""
+								ng-model="usrcna.formField.verifyPassword"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.verifyPassword1
@@ -97,7 +132,8 @@
 									{{ $appServ.getLabel(['createNewAccount', 'save', 'verifyPasswordError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.verifyPassword2
@@ -113,12 +149,18 @@
 							{{ $appServ.getLabel(['user', 'table', 'titlePrefix']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select theme="select2" on-select="usrcna.onSelectTitlePrefix($item)" ng-model="usrcna.formField.titlePrefixSelected.selected">
+							<ui-select
+								theme="select2"
+								on-select="usrcna.onSelectTitlePrefix($item)"
+								ng-model="usrcna.formField.titlePrefixSelected.selected">
 								<ui-select-match>
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.initials[$utilServ.lang] ? $select.selected.initials[$utilServ.lang] : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="usrcna.formField.titlePrefixSelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="usrcna.formField.titlePrefixSelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -127,13 +169,17 @@
 										{{ titlePrefix.initials[$utilServ.lang] }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, usrcna.formField.titlePrefix)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.titlePrefix
@@ -149,8 +195,17 @@
 							{{ $appServ.getLabel(['user', 'table', 'firstName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usrcna.formField.firstName" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="englishchar"
+								textbox-transformed="uppercase"
+								ng-model="usrcna.formField.firstName"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.firstName
@@ -166,7 +221,15 @@
 							{{ $appServ.getLabel(['user', 'table', 'middleName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usrcna.formField.middleName" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="englishchar"
+								textbox-transformed="uppercase"
+								ng-model="usrcna.formField.middleName"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -174,8 +237,17 @@
 							{{ $appServ.getLabel(['user', 'table', 'lastName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="englishchar" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="usrcna.formField.lastName" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="englishchar"
+								textbox-transformed="uppercase"
+								ng-model="usrcna.formField.lastName"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.lastName
@@ -191,10 +263,19 @@
 							{{ $appServ.getLabel(['user', 'table', 'gender']) }}
 						</div>
 						<div class="form-col input-col">
-							<div class="radio-row" ng-repeat="gender in usrcna.formField.gender">
+							<div
+								class="radio-row"
+								ng-repeat="gender in usrcna.formField.gender">
 								<ul>
 									<li class="radio-col input-col">
-										<input icheck class="inputradio" type="radio" name="gender" value="{{ gender.id }}" ng-model="usrcna.formField.genderSelected" />
+										<input
+											icheck
+											type="radio"
+											class="inputradio"
+											name="gender"
+											value="{{ gender.id }}"
+											ng-model="usrcna.formField.genderSelected"
+										/>
 									</li>
 									<li class="radio-col label-col">
 										<div class="label-tab">
@@ -205,7 +286,8 @@
 									</li>
 								</ul>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.gender
@@ -221,12 +303,17 @@
 							{{ $appServ.getLabel(['user', 'table', 'nationality']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select theme="select2" ng-model="usrcna.formField.nationalitySelected.selected">
+							<ui-select
+								theme="select2"
+								ng-model="usrcna.formField.nationalitySelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'nationality']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="usrcna.formField.nationalitySelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="usrcna.formField.nationalitySelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -235,13 +322,17 @@
 										{{ (nationality.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, usrcna.formField.nationality)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.nationality
@@ -257,12 +348,17 @@
 							{{ $appServ.getLabel(['user', 'table', 'countryUniversity']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select theme="select2" ng-model="usrcna.formField.countrySelected.selected">
+							<ui-select
+								theme="select2"
+								ng-model="usrcna.formField.countrySelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'country']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="usrcna.formField.countrySelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="usrcna.formField.countrySelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -271,13 +367,17 @@
 										{{ (country.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, usrcna.formField.country)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									usrcna.formValidate.showSaveError &&
 									!usrcna.formValidate.isValid.country
@@ -293,7 +393,10 @@
 						<div class="form-col input-col text-left nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!usrcna.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -301,7 +404,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!usrcna.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

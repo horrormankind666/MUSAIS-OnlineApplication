@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.contact.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.contact.class }}"
 	ng-controller="application.personalInfo.contactCtrl as appctc"
 	ng-show="
 		$appServ.isUser &&
@@ -9,14 +10,23 @@
 			<div class="alert alert-info text-left">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'personalInfo', 'contact', 'infoImportantRecommendMsg'])"></div>
 			</div>
-			<div class="panel-body page-body" ng-show="appctc.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="appctc.showForm">
 				<div class="form">
 					<div class="form-row">
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
 							{{ $appServ.getLabel(['application', 'table', 'contactTel']) }}
 						</div>
 						<div class="form-col input-col">
-								<input enter textbox textbox-type-letter="phonenumber" class="form-control inputbox font-en regular black f10" type="text" ng-model="appctc.formField.contactTel" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="phonenumber"
+								ng-model="appctc.formField.contactTel"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -24,8 +34,15 @@
 							{{ $appServ.getLabel(['user', 'table', 'email']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appctc.formField.email" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								ng-model="appctc.formField.email"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appctc.formValidate.showSaveError &&
 									!appctc.formValidate.isValid.email1
@@ -34,7 +51,8 @@
 									{{ $appServ.getLabel(['application', 'personalInfo', 'contact', 'save', 'emailError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appctc.formValidate.showSaveError &&
 									!appctc.formValidate.isValid.email2
@@ -50,7 +68,10 @@
 						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a									   
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!appctc.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -58,7 +79,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!appctc.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.emergencyContact.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.emergencyContact.class }}"
 	ng-controller="application.personalInfo.emergencyContactCtrl as appect"
 	ng-show="
 		$appServ.isUser &&
@@ -9,15 +10,25 @@
 			<div class="alert alert-info text-left">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'personalInfo', 'emergencyContact', 'infoImportantRecommendMsg'])"></div>
 			</div>
-			<div class="panel-body page-body" ng-show="appect.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="appect.showForm">
 				<div class="form">
 					<div class="form-row">
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
 							{{ $appServ.getLabel(['application', 'table', 'emergencyName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.name" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-transformed="uppercase"
+								ng-model="appect.formField.name"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.name
@@ -33,12 +44,17 @@
 							{{ $appServ.getLabel(['application', 'table', 'relationship']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="appect.formField.relationshipSelected.selected" theme="select2">
+							<ui-select
+								theme="select2"
+								ng-model="appect.formField.relationshipSelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'relationship']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appect.formField.relationshipSelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appect.formField.relationshipSelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -47,13 +63,17 @@
 										{{ (relationship.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appect.formField.relationship)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.relationship
@@ -70,9 +90,14 @@
 						</div>
 						<div class="form-col input-col">
 							<div class="textareabox">
-								<textarea textbox class="form-control font-en regular black f10" ng-model="appect.formField.address"></textarea>
+								<textarea
+									textbox
+									class="form-control font-en regular black f10"
+									ng-model="appect.formField.address">
+								</textarea>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.address
@@ -88,7 +113,13 @@
 							{{ $appServ.getLabel(['application', 'table', 'district']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.district" />
+							<input
+								enter
+								type="text"
+								textbox
+								class="form-control inputbox font-en regular black f10"
+								ng-model="appect.formField.district"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -96,8 +127,15 @@
 							{{ $appServ.getLabel(['application', 'table', 'city']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.city" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								ng-model="appect.formField.city"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.city
@@ -113,8 +151,15 @@
 							{{ $appServ.getLabel(['application', 'table', 'province']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.province" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								ng-model="appect.formField.province"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.province
@@ -130,7 +175,16 @@
 							{{ $appServ.getLabel(['application', 'table', 'postalCode']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="zipcode" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" maxlength="10" ng-model="appect.formField.postalCode" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="zipcode"
+								textbox-transformed="uppercase"
+								maxlength="10"
+								ng-model="appect.formField.postalCode"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -138,12 +192,17 @@
 							{{ $appServ.getLabel(['application', 'table', 'country']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="appect.formField.countrySelected.selected" theme="select2">
+							<ui-select
+								theme="select2"
+								ng-model="appect.formField.countrySelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'country']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appect.formField.countrySelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appect.formField.countrySelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -152,13 +211,17 @@
 										{{ (country.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appect.formField.country)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.country
@@ -174,8 +237,16 @@
 							{{ $appServ.getLabel(['application', 'table', 'homeTel']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="phonenumber" class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.homeTel" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"								
+								textbox-type-letter="phonenumber"
+								ng-model="appect.formField.homeTel"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.homeTel
@@ -191,7 +262,14 @@
 							{{ $appServ.getLabel(['application', 'table', 'officeTel']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="phonenumber" class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.officeTel" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="phonenumber"
+								ng-model="appect.formField.officeTel"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -199,8 +277,16 @@
 							{{ $appServ.getLabel(['application', 'table', 'mobile']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="phonenumber" class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.mobile" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="phonenumber"
+								ng-model="appect.formField.mobile"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.mobile
@@ -216,7 +302,14 @@
 							{{ $appServ.getLabel(['application', 'table', 'fax']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="phonenumber" class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.fax" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-type-letter="phonenumber"
+								ng-model="appect.formField.fax"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -224,8 +317,15 @@
 							{{ $appServ.getLabel(['user', 'table', 'email']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox class="form-control inputbox font-en regular black f10" type="text" ng-model="appect.formField.email" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								ng-model="appect.formField.email"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.email1
@@ -234,7 +334,8 @@
 									{{ $appServ.getLabel(['application', 'personalInfo', 'emergencyContact', 'save', 'emailError', '1']) }}
 								</span>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appect.formValidate.showSaveError &&
 									!appect.formValidate.isValid.email2
@@ -250,7 +351,10 @@
 						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!appect.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -258,7 +362,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!appect.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

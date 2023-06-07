@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Web;
 using System.Web.UI;
 
 namespace API {
@@ -9,7 +11,7 @@ namespace API {
 		) {
 			string fileName = Request.QueryString["f"];
 
-			iUtil.ViewFile((Server.MapPath("~").Replace("API", "").Replace("Publish", "") + iUtil.fileUploadPath), fileName);
-		}
+            iUtil.ViewFile((Server.MapPath("~").Replace("API", "").Replace("Publish", "") + iUtil.fileUploadPath), fileName);
+        }
 	}
 }

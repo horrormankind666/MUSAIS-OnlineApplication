@@ -68,7 +68,6 @@ D:\Programming\ExchangeStudent\Project\API\obj\Release\API.pdb
 D:\Programming\ExchangeStudent\Project\API\obj\Release\API.XmlSerializers.dll
 D:\Programming\MUSAIS\OnlineApplication\API\bin\API.dll.config
 D:\Programming\MUSAIS\OnlineApplication\API\bin\API.dll
-D:\Programming\MUSAIS\OnlineApplication\API\bin\API.XmlSerializers.dll
 D:\Programming\MUSAIS\OnlineApplication\API\bin\API.pdb
 D:\Programming\MUSAIS\OnlineApplication\API\bin\roslyn\csc.exe
 D:\Programming\MUSAIS\OnlineApplication\API\bin\roslyn\csc.exe.config
@@ -132,7 +131,6 @@ D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.csproj.CoreCompileIn
 D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.csproj.CopyComplete
 D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.dll
 D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.pdb
-D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.XmlSerializers.dll
 D:\Programming\MUSAIS\OnlineApplication\API\obj\Release\API.csproj.AssemblyReference.cache
 D:\Programming\MUSAIS\OnlineApplication\API\bin\EPPlus.dll
 D:\Programming\MUSAIS\OnlineApplication\API\bin\Microsoft.IO.RecyclableMemoryStream.dll

@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.applicationView.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.applicationView.class }}"
 	ng-controller="application.viewCtrl as appviw"
 	ng-show="
 		$appServ.isUser &&
@@ -6,9 +7,15 @@
 	">
 	<div class="dialogin">
 		<div class="panel noborder">
-			<div class="panel-body page-body" ng-show="appviw.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="appviw.showForm">
 				<uib-accordion close-others="false">
-					<div uib-accordion-group class="panel-info" ng-init="group[1].isOpen = true" is-open="group[1].isOpen">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[1].isOpen"
+						ng-init="group[1].isOpen = true">
 						<uib-accordion-heading>
 							<div class="navigation">
 								<ul>
@@ -42,7 +49,9 @@
 										<div class="{{ $appServ.labelStyle }} regular black f10">
 											{{ (appviw.dataRow.studentCategoryOther ? appviw.dataRow.studentCategoryOther : appviw.dataRow.studentCategoryName[$utilServ.lang]) | capitalize }}
 										</div>
-										<div class="{{ $appServ.labelStyle }} regular black f10" ng-show="appviw.dataRow.studentCategorySpecify">
+										<div
+											class="{{ $appServ.labelStyle }} regular black f10"
+											ng-show="appviw.dataRow.studentCategorySpecify">
 											{{ appviw.dataRow.studentCategorySpecify | capitalize }}
 										</div>
 									</div>
@@ -142,7 +151,11 @@
 							</div>
 						</div>
 					</div>
-					<div uib-accordion-group class="panel-info" ng-init="group[2].isOpen = true" is-open="group[2].isOpen">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[2].isOpen"
+						ng-init="group[2].isOpen = true">
 						<uib-accordion-heading>
 							<div class="navigation">
 								<ul>
@@ -305,7 +318,9 @@
 										</span>
 									</div>
 									<div class="iform-col label-col text-center colhead paddingTop5">
-										<span class="{{ $appServ.labelStyle }} bold black f10">:</span>
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10" ng-bind-html="appviw.dataRow.homeAddress"></span>
@@ -425,7 +440,9 @@
 										</span>
 									</div>
 									<div class="iform-col label-col text-center colhead paddingTop5">
-										<span class="{{ $appServ.labelStyle }} bold black f10">:</span>
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
@@ -457,7 +474,9 @@
 										</span>
 									</div>
 									<div class="iform-col label-col text-center colhead paddingTop5">
-										<span class="{{ $appServ.labelStyle }} bold black f10"> : </span>
+										<span class="{{ $appServ.labelStyle }} bold black f10">
+											:
+										</span>
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
@@ -771,7 +790,11 @@
 							</div>
 						</div>
 					</div>
-					<div uib-accordion-group class="panel-info" ng-init="group[3].isOpen = true" is-open="group[3].isOpen">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[3].isOpen"
+						ng-init="group[3].isOpen = true">
 						<uib-accordion-heading>
 							<div class="navigation">
 								<ul>
@@ -962,7 +985,11 @@
 							</div>
 						</div>
 					</div>
-					<div uib-accordion-group class="panel-info" ng-init="group[4].isOpen = true" is-open="group[4].isOpen">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[4].isOpen"
+						ng-init="group[4].isOpen = true">
 						<uib-accordion-heading>
 							<div class="navigation">
 								<ul>
@@ -980,7 +1007,9 @@
 							</div>
 						</uib-accordion-heading>
 						<div class="view">
-							<div class="iform" ng-init="url = ($utilServ.getURLAPI($appServ.pathAPI) + 'ViewFile.aspx/?ver=' + $utilServ.dateTimeOnURL + '&f=')">
+							<div
+								class="iform"
+								ng-init="url = ($utilServ.getURLAPI($appServ.pathAPI) + 'ViewFile.aspx/?ver=' + $utilServ.dateTimeOnURL + '&f=')">
 								<div class="iform-row">
 									<div class="iform-col label-col text-right colhead">
 										<span class="{{ $appServ.labelStyle }} bold black f10">
@@ -994,7 +1023,9 @@
 									</div>
 									<div class="iform-col input-col text-left">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.passportFile) })"
 												ng-show="appviw.dataRow.passportFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1015,7 +1046,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.facePhotographsFile) })"
 												ng-show="appviw.dataRow.facePhotographsFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1034,7 +1067,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.transcriptFile) })"
 												ng-show="appviw.dataRow.transcriptFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1055,7 +1090,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.travelInsuranceFile) })"
 												ng-show="appviw.dataRow.travelInsuranceFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1074,7 +1111,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.letterHomeUniversityFile) })"
 												ng-show="appviw.dataRow.letterHomeUniversityFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1095,7 +1134,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.curriculumVitaeFile) })"
 												ng-show="appviw.dataRow.curriculumVitaeFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1116,7 +1157,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.TOEFLIELTSFile) })"
 												ng-show="appviw.dataRow.TOEFLIELTSFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1137,7 +1180,9 @@
 									</div>
 									<div class="iform-col input-col text-left paddingTop5">
 										<span class="{{ $appServ.labelStyle }} regular black f10">
-											<a class="link" href="javascript:void(0)"
+											<a
+												class="link"
+												href="javascript:void(0)"
 												ng-click="$utilServ.viewFile({ url: (url + appviw.dataRow.letterIntentFile) })"
 												ng-show="appviw.dataRow.letterIntentFile">
 												{{ $appServ.getLabel(['view']) }}
@@ -1148,7 +1193,11 @@
 							</div>
 						</div>
 					</div>
-					<div uib-accordion-group class="panel-info" ng-init="group[5].isOpen = true" is-open="group[5].isOpen">
+					<div
+						uib-accordion-group
+						class="panel-info"
+						is-open="group[5].isOpen"
+						ng-init="group[5].isOpen = true">
 						<uib-accordion-heading>
 							<div class="navigation">
 								<ul>
@@ -1196,7 +1245,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-row" ng-show="appviw.dataRow.declarationA == 'Y'">
+							<div
+								class="form-row"
+								ng-show="appviw.dataRow.declarationA == 'Y'">
 								<div class="form-col label-col">
 									<div class="panel-table">
 										<div class="panel-row">
@@ -1224,7 +1275,9 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-row" ng-show="appviw.dataRow.declarationE">
+							<div
+								class="form-row"
+								ng-show="appviw.dataRow.declarationE">
 								<div class="form-col label-col">
 									<div class="panel-table">
 										<div class="panel-row">
@@ -1245,7 +1298,9 @@
 											<div class="panel-row">
 												<div class="panel-col"></div>
 												<div class="panel-col">
-													<span class="{{ $appServ.labelStyle }} regular black f10" ng-show="appviw.dataRow.declarationE === 'N'">
+													<span
+														class="{{ $appServ.labelStyle }} regular black f10"
+														ng-show="appviw.dataRow.declarationE === 'N'">
 														{{ appviw.dataRow.declarationEName }}
 													</span>
 													<span class="{{ $appServ.labelStyle }} regular black f10" ng-show="appviw.dataRow.declarationE === 'Y'" ng-bind-html="appviw.dataRow.declarationESpecify"></span>

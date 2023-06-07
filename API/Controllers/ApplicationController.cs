@@ -2,12 +2,11 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๒๘/๐๖/๒๕๖๑>
-Modify date : <๑๕/๐๘/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <คอนโทลเลอร์ข้อมูลใบสมัคร>
 =============================================
 */
 
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Net;
@@ -29,29 +28,26 @@ namespace API.Controllers {
 		[Route("GetData")]
 		[HttpGet]
 		public HttpResponseMessage GetData(string package = "") {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			string cookieValue = String.Empty;
-			string[] packageDecode = null;
-			string applicationId = String.Empty;
-			string userId = String.Empty;
-			string verifyCode = String.Empty;
+			string applicationID = string.Empty;
+			string userID = string.Empty;
+			string verifyCode = string.Empty;
 
-			if (!String.IsNullOrEmpty(package)) {
+			if (!string.IsNullOrEmpty(package)) {
 				try {
-					packageDecode = ss.DecodeBase64String(package).Split('.');
-					cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+                    string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+					string cookieValue = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
 
 					if (iUtil.CompareCookie(iUtil.cookieName, cookieValue)) {
-						applicationId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
-						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[3]));
+						applicationID = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
+						userID = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
+						verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[3]));
 					}
 				}
 				catch {
 				}
 			}
 
-			DataTable dt = API.Models.Application.GetData(applicationId, userId, verifyCode).Tables[0];
+			DataTable dt = Application.GetData(applicationID, userID, verifyCode).Tables[0];
 
 			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(dt));
 		}

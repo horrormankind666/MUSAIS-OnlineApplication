@@ -2,12 +2,11 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๘/๐๖/๒๕๖๑>
-Modify date : <๐๙/๐๙/๒๕๖๓>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <คอนโทลเลอร์ข้อมูลผู้ใช้งาน>
 =============================================
 */
 
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -35,25 +34,24 @@ namespace API.Controllers {
 			string packageOld = "",
 			string verifyCode = ""
 		) {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			string[] packageDecode = null;
-			string[] packageOldDecode = null;
-			string userId = String.Empty;
-			string username = String.Empty;
-			string password = String.Empty;
+			string userId = string.Empty;
+			string username = string.Empty;
+			string password = string.Empty;
 
 			try {
-				if (!String.IsNullOrEmpty(package)) {
-					packageDecode = ss.DecodeBase64String(package).Split('.');
-					username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-					password = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+				if (!string.IsNullOrEmpty(package)) {
+                    string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+
+					username = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+					password = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 				}
 
-				if (!String.IsNullOrEmpty(packageOld)) {
-					packageOldDecode = ss.DecodeBase64String(packageOld).Split('.');
-					userId = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[0]));
-					username = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[1]));
-					password = ss.DecodeBase64String(ss.StringReverse(packageOldDecode[2]));
+				if (!string.IsNullOrEmpty(packageOld)) {
+                    string[] packageOldDecode = iUtil.DecodeBase64String(packageOld).Split('.');
+
+					userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageOldDecode[0]));
+					username = iUtil.DecodeBase64String(iUtil.StringReverse(packageOldDecode[1]));
+					password = iUtil.DecodeBase64String(iUtil.StringReverse(packageOldDecode[2]));
 				}
 			}
 			catch {
@@ -71,32 +69,29 @@ namespace API.Controllers {
 			string sendEmailStatus = "",
 			string email = ""
 		) {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			string[] packageDecode = null;
-			string action = String.Empty;
-			string userId = String.Empty;
-			string username = String.Empty;
-			string password = String.Empty;
-			string verifyCode = String.Empty;
+			string userId = string.Empty;
+			string username = string.Empty;
+			string password = string.Empty;
+			string verifyCode = string.Empty;
 
-			if (!String.IsNullOrEmpty(package)) {
+			if (!string.IsNullOrEmpty(package)) {
 				try {
-					packageDecode = ss.DecodeBase64String(package).Split('.');
-					action = ss.DecodeBase64String(ss.StringReverse(packageDecode[packageDecode.GetLength(0) - 1]));
+                    string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+					string action = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[packageDecode.GetLength(0) - 1]));
 
 					if (action.Equals("signin")) {
-						username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						password = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						username = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						password = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("info")) {
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("requestPassword")) {
-						username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						username = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 					}
 				}
 				catch {
@@ -105,7 +100,7 @@ namespace API.Controllers {
 
 			DataTable dt = API.Models.User.GetData(userId, username, password, verifyCode, sendEmailStatus, email).Tables[0];
 
-			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(dt));
+			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(dt));			
 		}
 
 		[Route("PostData")]
@@ -141,20 +136,17 @@ namespace API.Controllers {
 		[Route("GetTermServiceConsent")]
 		[HttpGet]
 		public HttpResponseMessage GetTermServiceConsent(string package = "") {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			string[] packageDecode = null;
-			string cookieValue = String.Empty;
-			string userId = String.Empty;
-			string termServiceType = String.Empty;
+			string userId = string.Empty;
+			string termServiceType = string.Empty;
 
-			if (!String.IsNullOrEmpty(package)) {
+			if (!string.IsNullOrEmpty(package)) {
 				try {
-					packageDecode = ss.DecodeBase64String(package).Split('.');
-					cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+                    string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+                    string cookieValue = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
 
 					if (iUtil.CompareCookie(iUtil.cookieName, cookieValue)) {
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
-						termServiceType = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
+						userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
+						termServiceType = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
 					}
 				}
 				catch {
@@ -169,32 +161,29 @@ namespace API.Controllers {
 		[Route("SetTermServiceConsent")]
 		[HttpPost]
 		public HttpResponseMessage SetTermServiceConsent() {
-			string userId = String.Empty;
-			string termServiceType = String.Empty;
+			string userId = string.Empty;
+			string termServiceType = string.Empty;
 			StringBuilder xmlData = new StringBuilder();
 
 			try {
 				dynamic json = GetJSONFromRequest();
 				string package = json["package"];			
-				
-				StudentService.StudentService ss = new StudentService.StudentService();
-				string[] packageDecode = null;
-				string cookieValue = String.Empty;
 
-				if (!String.IsNullOrEmpty(package)) {
-					packageDecode = ss.DecodeBase64String(package).Split('.');
-					cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
+				if (!string.IsNullOrEmpty(package)) {
+                    string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+                    string cookieValue = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
 					
 					if (iUtil.CompareCookie(iUtil.cookieName, cookieValue)) {
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
-						termServiceType = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
+						userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
+						termServiceType = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
 					}
 				}
 			}
 			catch {
 			}
 
-			if (!String.IsNullOrEmpty(userId) && !String.IsNullOrEmpty(termServiceType)) {
+			if (!string.IsNullOrEmpty(userId) &&
+				!string.IsNullOrEmpty(termServiceType)) {
 				xmlData.AppendFormat(
 					"<table>" +
 					"<row>" +
@@ -204,12 +193,16 @@ namespace API.Controllers {
 					"<ip>{2}</ip>" +
 					"<createdBy>{3}</createdBy>" +
 					"</row>" +
-					"</table>", userId, termServiceType, iUtil.GetIP(), userId
+					"</table>",
+					userId,
+					termServiceType,
+					iUtil.GetIP(),
+					userId
 				);
 			}
 
 			DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.infinityConnectionString, "sp_stdSetStudentTermService",
-				new SqlParameter("@xmlData", (!String.IsNullOrEmpty(xmlData.ToString()) ? xmlData.ToString() : null))
+				new SqlParameter("@xmlData", (!string.IsNullOrEmpty(xmlData.ToString()) ? xmlData.ToString() : null))
 			);
 
 			return Request.CreateResponse(HttpStatusCode.OK, iUtil.APIResponse.GetData(ds.Tables[0]));

@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.signin.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.signin.class }}"
 	ng-controller="user.signinCtrl as usrsgn"
 	ng-show="!$appServ.isUser">
 	<div class="panel noborder">
@@ -21,14 +22,23 @@
 				</div>
 			</div>
 		</div>
-		<div class="panel-body page-body" ng-show="usrsgn.showForm">
+		<div
+			class="panel-body page-body"
+			ng-show="usrsgn.showForm">
 			<div class="form vertical">
 				<div class="form-row">
 					<div class="form-col label-col {{ $appServ.labelStyle }} regular black f9">
 						{{ $appServ.getLabel(['authen', 'username']) }}
 					</div>
 					<div class="form-col input-col">
-						<input enter textbox class="form-control inputbox font-en regular black f10" type="text" value="" ng-model="usrsgn.formField.username" />
+						<input
+							enter
+							textbox
+							type="text"
+							class="form-control inputbox font-en regular black f10"
+							value=""
+							ng-model="usrsgn.formField.username"
+						/>
 					</div>
 				</div>
 				<div class="form-row">
@@ -36,12 +46,22 @@
 						{{ $appServ.getLabel(['authen', 'password']) }}
 					</div>
 					<div class="form-col input-col">
-						<input enter textbox class="form-control inputbox font-en regular black f10" type="password" value="" ng-model="usrsgn.formField.password" />
+						<input
+							enter
+							textbox
+							type="password"
+							class="form-control inputbox font-en regular black f10"
+							value=""
+							ng-model="usrsgn.formField.password"
+						/>
 					</div>
 				</div>
 			</div>
 			<div class="btn-command text-center">
-				<a enter class="btn btn-block btn-primary nomargin-top nomargin-left" href="javascript:void(0)"
+				<a
+					enter
+					class="btn btn-block btn-primary nomargin-top nomargin-left"
+					href="javascript:void(0)"
 					ng-click="
 						$utilServ.doBlur($event);
 						usrsgn.signin.action()
@@ -58,7 +78,9 @@
 							<i class="fa fa-user-plus regular black f9"></i>
 						</div>
 						<div class="panel-col">
-							<a class="{{ $appServ.labelStyle }} regular black f10 link" href="#/{{ $pageRouteServ.pageObject.createNewAccount.url }}">
+							<a
+								class="{{ $appServ.labelStyle }} regular black f10 link"
+								href="#/{{ $pageRouteServ.pageObject.createNewAccount.url }}">
 								{{ $appServ.getLabel(['createNewAccount']) }}
 							</a>
 						</div>
@@ -68,7 +90,9 @@
 							<i class="fa fa-lock regular black f7"></i>
 						</div>
 						<div class="panel-col">
-							<a class="{{ $appServ.labelStyle }} regular black f10 link" href="javascript:void(0)"
+							<a
+								class="{{ $appServ.labelStyle }} regular black f10 link"
+								href="javascript:void(0)"
 								ng-click="
 									$utilServ.doBlur($event);
 									usrsgn.requestPassword.getDialogForm.action()
@@ -76,7 +100,7 @@
 								{{ $appServ.getLabel(['authen', 'forgotPassword']) }}
 							</a>
 						</div>
-					</div>                    
+					</div>
 				</div>
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๘/๐๖/๒๕๖๑>
-Modify date : <๐๘/๐๔/๒๕๖๕>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <โมเดลข้อมูลผู้ใช้งาน>
 =============================================
 */
@@ -11,8 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Net;
-using System.Net.Mail;
 
 namespace API.Models {
 	public class User {
@@ -112,7 +110,8 @@ namespace API.Models {
 			if (ds.Tables[0].Rows.Count > 0) {
 				DataRow dr = ds.Tables[0].Rows[0];
 
-				if (sendEmailStatus.Equals("Y") && !String.IsNullOrEmpty(email))
+				if (sendEmailStatus.Equals("Y") &&
+					!String.IsNullOrEmpty(email))
 					iUtil.SendMail(email, dr["mailSubject"].ToString(), dr["mailMessage"].ToString());
 
 				dr["mailMessage"] = null;
@@ -126,13 +125,11 @@ namespace API.Models {
 			List<User> data
 		) {
 			string action = String.Empty;
-			string[] packageDecode = null;
 			string userId = String.Empty;
 			string username = String.Empty;
 			string password = String.Empty;
 			string verifyCode = String.Empty;
 			DataSet ds = new DataSet();
-			StudentService.StudentService ss = new StudentService.StudentService();
 
 			if (method.Equals("POST"))
 				action = "INSERT";
@@ -145,20 +142,20 @@ namespace API.Models {
 
 			foreach (var d in data) {
 				try {
-					packageDecode = ss.DecodeBase64String(d.package).Split('.');
+                    string[] packageDecode = iUtil.DecodeBase64String(d.package).Split('.');
 
 					if (action.Equals("INSERT")) {
-						username = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						password = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						username = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						password = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 					}
 
 					if (action.Equals("UPDATE")) {
-						userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-						verifyCode = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
+						userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+						verifyCode = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
 
 						if (packageDecode.GetLength(0).Equals(4)) {
-							username = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
-							password = ss.DecodeBase64String(ss.StringReverse(packageDecode[3]));
+							username = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
+							password = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[3]));
 						}
 					}
                 

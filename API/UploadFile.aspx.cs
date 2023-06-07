@@ -14,28 +14,19 @@ namespace API {
 			string what = Request.QueryString["what"];
 			string package = Request.QueryString["package"];
 			string fileName = (DateTime.Now).ToString("dd-MM-yyyy@HH-mm-ss", new CultureInfo("en-US"));
-			string saveFile = String.Empty;
-			string cookieValue = String.Empty;
-			string userId = String.Empty;
-			string applicationId = String.Empty;
-			string verifyCode = String.Empty;
-			string[] packageDecode = null;
-			bool status = true;            
-			Dictionary<string, object> result = new Dictionary<string, object>();
-			JavaScriptSerializer json = new JavaScriptSerializer();
-			StudentService.StudentService ss = new StudentService.StudentService();
+			bool status;			
            
 			try {
-				packageDecode = ss.DecodeBase64String(package).Split('.');
-				cookieValue = ss.DecodeBase64String(ss.StringReverse(packageDecode[0]));
-				userId = ss.DecodeBase64String(ss.StringReverse(packageDecode[1]));
-				applicationId = ss.DecodeBase64String(ss.StringReverse(packageDecode[2]));
+                string[] packageDecode = iUtil.DecodeBase64String(package).Split('.');
+				string cookieValue = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[0]));
+				string userId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[1]));
+				string applicationId = iUtil.DecodeBase64String(iUtil.StringReverse(packageDecode[2]));
 
 				if (iUtil.CompareCookie(iUtil.cookieName, cookieValue)) {
 					FileInfo f = new FileInfo(Request.Files[0].FileName);
 
 					fileName = (applicationId + what + fileName + f.Extension.ToLower());
-					saveFile = (Server.MapPath("~").Replace("API", "").Replace("Publish", "") + iUtil.fileUploadPath + "/" + fileName);
+					string saveFile = (Server.MapPath("~").Replace("API", "").Replace("Publish", "") + iUtil.fileUploadPath + "/" + fileName);
 
 					Request.Files[0].SaveAs(saveFile);
 
@@ -49,10 +40,12 @@ namespace API {
 				status = false;
 			}
 
-			result.Add("status", status);
-			result.Add("fileName", fileName);
+            Dictionary<string, object> result = new Dictionary<string, object> {
+                { "status", status },
+                { "fileName", fileName }
+            };
 
-			Response.Write(json.Serialize(result));
+            Response.Write(new JavaScriptSerializer().Serialize(result));
 		}
 	}
 }

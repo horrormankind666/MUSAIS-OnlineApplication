@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.activateAccount.class }}"
+﻿<div
+    class="{{ $pageRouteServ.pageObject.activateAccount.class }}"
     ng-controller="user.activateAccountCtrl as usraca"
     ng-show="!$appServ.isUser">
     <div class="dialogin">
@@ -22,11 +23,17 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-success text-left" ng-show="usraca.isSaveStatus">
+            <div
+                class="alert alert-success text-left"
+                ng-show="usraca.isSaveStatus">
 	            <div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['activateAccount', 'infoImportantSuccessMsg'])"></div>
             </div>
-            <div class="panel-body page-body" ng-show="usraca.showForm">
-                <div class="view" ng-show="!usraca.isSaveStatus">
+            <div
+                class="panel-body page-body"
+                ng-show="usraca.showForm">
+                <div
+                    class="view"
+                    ng-show="!usraca.isSaveStatus">
                     <div class="iform">
                         <div class="iform-row">
                             <div class="iform-col label-col text-right colhead">
@@ -114,9 +121,14 @@
 						    </div>
                         </div>
                     </div>
-                    <div class="btn-command" ng-show="usraca.isUser">
+                    <div
+                        class="btn-command"
+                        ng-show="usraca.isUser">
                         <span>
-					        <a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-secondary nomargin-left" href="javascript:void(0)"
+					        <a
+                                enter
+                                class="{{ $appServ.labelStyle }} regular white f10 btn btn-secondary nomargin-left"
+                                href="javascript:void(0)"
                                 ng-click="
                                     $utilServ.doBlur($event);
                                     usraca.saveChange.action()

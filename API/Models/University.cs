@@ -2,12 +2,13 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๐๔/๐๗/๒๕๖๑>
-Modify date : <๐๔/๐๗/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <คอนโทลเลอร์ข้อมูลมหาวิทยาลัย>
 =============================================
 */
 
 using System.Data;
+using System.Data.SqlClient;
 
 namespace API.Models {
 	public class University {
@@ -18,10 +19,15 @@ namespace API.Models {
 			string sortOrderBy,
 			string sortExpression
 		) {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			DataSet ds = ss.GetListUniversity(iUtil.infinityConnectionString, keyword, country, cancelledStatus, sortOrderBy, sortExpression);
+            DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.infinityConnectionString, "sp_plcGetListUniversity",
+                new SqlParameter("@keyword", keyword),
+                new SqlParameter("@country", country),
+                new SqlParameter("@cancelledStatus", cancelledStatus),
+                new SqlParameter("@sortOrderBy", sortOrderBy),
+                new SqlParameter("@sortExpression", sortExpression)
+			);
 
-			return ds;
+            return ds;
 		}
 	}
 }

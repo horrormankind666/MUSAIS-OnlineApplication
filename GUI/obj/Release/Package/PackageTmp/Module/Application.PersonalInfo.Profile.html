@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.profile.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.personalInfo.class + ' ' + $pageRouteServ.pageObject.personalInfo.profile.class }}"
 	ng-controller="application.personalInfo.profileCtrl as apppro"
 	ng-show="
 		$appServ.isUser &&
@@ -9,19 +10,30 @@
 			<div class="alert alert-info text-left">
 				<div class="{{ $appServ.labelStyle }} regular f11" ng-bind-html="$appServ.getLabel(['application', 'personalInfo', 'profile', 'infoImportantRecommendMsg'])"></div>
 			</div>
-			<div class="panel-body page-body" ng-show="apppro.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="apppro.showForm">
 				<div class="form">
 					<div class="form-row">
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10 required">
 							{{ $appServ.getLabel(['user', 'table', 'titlePrefix']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="apppro.formField.titlePrefixSelected.selected" theme="select2" on-select="apppro.onSelectTitlePrefix($item)">
+							<ui-select
+								theme="select2"
+								on-select="apppro.onSelectTitlePrefix($item)"
+								ng-model="apppro.formField.titlePrefixSelected.selected">
 								<ui-select-match>
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.initials[$utilServ.lang] ? $select.selected.initials[$utilServ.lang] : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="apppro.formField.titlePrefixSelected.selected = undefined; apppro.onSelectTitlePrefix({})">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="
+											apppro.formField.titlePrefixSelected.selected = undefined;
+											apppro.onSelectTitlePrefix({})
+										">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -30,13 +42,17 @@
 										{{ titlePrefix.initials[$utilServ.lang] }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, apppro.formField.titlePrefix)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.titlePrefix
@@ -52,8 +68,15 @@
 							{{ $appServ.getLabel(['user', 'table', 'firstName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="apppro.formField.firstName" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-transformed="uppercase"
+								ng-model="apppro.formField.firstName" />
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.firstName
@@ -69,7 +92,14 @@
 							{{ $appServ.getLabel(['user', 'table', 'middleName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="apppro.formField.middleName" />
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-transformed="uppercase"
+								ng-model="apppro.formField.middleName"
+							/>
 						</div>
 					</div>
 					<div class="form-row">
@@ -77,8 +107,16 @@
 							{{ $appServ.getLabel(['user', 'table', 'lastName']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" ng-model="apppro.formField.lastName" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								textbox-transformed="uppercase"
+								ng-model="apppro.formField.lastName"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.lastName
@@ -94,10 +132,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'birthDate']) }}
 						</div>
 						<div class="form-col input-col">
-							<div datetimepicker class="input-group date"
+							<div
+								datetimepicker
+								class="input-group date"
 								ng-init="datetimepickerOptions = $appServ.datetimepickerOptions"
 								ng-model="datepickerBirthDate">
-								<input textbox class="inputcalendar form-control inputbox font-en regular black f10" type="text" value="" ng-model="datepickerBirthDate.date" />
+								<input
+									textbox
+									type="text"
+									class="inputcalendar form-control inputbox font-en regular black f10"
+									value=""
+									ng-model="datepickerBirthDate.date"
+								/>
 								<span class="input-group-addon">
 									<i class="glyphicon glyphicon-calendar"></i>
 								</span>
@@ -105,7 +151,8 @@
 							<div class="description {{ $appServ.labelStyle }} regular gray f11">
 								{{ $appServ.getLabel(['dateFormat']) }}
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.birthDate
@@ -121,10 +168,19 @@
 							{{ $appServ.getLabel(['user', 'table', 'gender']) }}
 						</div>
 						<div class="form-col input-col">
-							<div class="radio-row" ng-repeat="gender in apppro.formField.gender">
+							<div
+								class="radio-row"
+								ng-repeat="gender in apppro.formField.gender">
 								<ul>
 									<li class="radio-col input-col">
-										<input icheck class="inputradio" type="radio" name="gender" value="{{ gender.id }}" ng-model="apppro.formField.genderSelected" />
+										<input
+											icheck
+											type="radio"
+											class="inputradio"
+											name="gender"
+											value="{{ gender.id }}"
+											ng-model="apppro.formField.genderSelected"
+										/>
 									</li>
 									<li class="radio-col label-col">
 										<div class="label-tab">
@@ -135,7 +191,8 @@
 									</li>
 								</ul>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.gender
@@ -151,12 +208,17 @@
 							{{ $appServ.getLabel(['user', 'table', 'nationality']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="apppro.formField.nationalitySelected.selected" theme="select2">
+							<ui-select
+								theme="select2"
+								ng-model="apppro.formField.nationalitySelected.selected">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'nationality']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ ($select.selected.name[$utilServ.lang] ? ($select.selected.name[$utilServ.lang] | capitalize) : "") }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="apppro.formField.nationalitySelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="apppro.formField.nationalitySelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -165,13 +227,17 @@
 										{{ (nationality.name[$utilServ.lang] | capitalize) }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, apppro.formField.nationality)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.nationality
@@ -187,10 +253,19 @@
 							{{ $appServ.getLabel(['application', 'table', 'maritalStatus']) }}
 						</div>
 						<div class="form-col input-col">
-							<div class="radio-row" ng-repeat="maritalStatus in apppro.formField.maritalStatus">
+							<div
+								class="radio-row"
+								ng-repeat="maritalStatus in apppro.formField.maritalStatus">
 								<ul>
 									<li class="radio-col input-col">
-										<input icheck class="inputradio" type="radio" name="maritalstatus" value="{{ maritalStatus.id }}" ng-model="apppro.formField.maritalStatusSelected" />
+										<input
+											icheck
+											type="radio"
+											class="inputradio"
+											name="maritalstatus"
+											value="{{ maritalStatus.id }}"											   
+											ng-model="apppro.formField.maritalStatusSelected"
+										/>
 									</li>
 									<li class="radio-col label-col">
 										<div class="label-tab">
@@ -201,7 +276,8 @@
 									</li>
 								</ul>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.maritalStatus
@@ -217,8 +293,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'passportNumber']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox textbox-type-letter="englishnumeric" textbox-transformed="uppercase" class="form-control inputbox font-en regular black f10" type="text" maxlength="20" ng-model="apppro.formField.passportNumber" />
-							<div class="alert alert-danger"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"								
+								textbox-type-letter="englishnumeric"
+								textbox-transformed="uppercase"
+								maxlength="20"
+								ng-model="apppro.formField.passportNumber"
+							/>
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.passportNumber
@@ -234,10 +320,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'passportExpiryDate']) }}
 						</div>
 						<div class="form-col input-col">
-							<div datetimepicker class="input-group date"
+							<div
+								datetimepicker
+								class="input-group date"
 								ng-init="datetimepickerOptions = $appServ.datetimepickerOptions"
 								ng-model="datepickerPassportExpiryDate">
-								<input textbox class="inputcalendar form-control inputbox font-en regular black f10" type="text" value="" ng-model="datepickerPassportExpiryDate.date" />
+								<input
+									textbox
+									type="text"
+									class="inputcalendar form-control inputbox font-en regular black f10"
+									value=""
+									ng-model="datepickerPassportExpiryDate.date"
+								/>
 								<span class="input-group-addon">
 									<i class="glyphicon glyphicon-calendar"></i>
 								</span>
@@ -245,7 +339,8 @@
 							<div class="description {{ $appServ.labelStyle }} regular gray f11">
 								{{ $appServ.getLabel(['dateFormat']) }}
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									apppro.formValidate.showSaveError &&
 									!apppro.formValidate.isValid.passportExpiryDate
@@ -261,7 +356,10 @@
 						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!apppro.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -269,7 +367,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!apppro.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

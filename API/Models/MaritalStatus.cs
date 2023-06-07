@@ -2,12 +2,13 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๐/๐๗/๒๕๖๑>
-Modify date : <๑๐/๐๗/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <โมเดลข้อมูลสถานภาพทางการสมรส>
 =============================================
 */
 
 using System.Data;
+using System.Data.SqlClient;
 
 namespace API.Models {
 	public class MaritalStatus {
@@ -17,10 +18,14 @@ namespace API.Models {
 			string sortOrderBy,
 			string sortExpression
 		) {
-			StudentService.StudentService ss = new StudentService.StudentService();
-			DataSet ds = ss.GetListMaritalStatus(iUtil.infinityConnectionString, keyword, cancelledStatus, sortOrderBy, sortExpression);
+            DataSet ds = iUtil.ExecuteCommandStoredProcedure(iUtil.infinityConnectionString, "sp_perGetListMaritalStatus",
+                new SqlParameter("@keyword", keyword),
+                new SqlParameter("@cancelledStatus", cancelledStatus),
+                new SqlParameter("@sortOrderBy", sortOrderBy),
+                new SqlParameter("@sortExpression", sortExpression)
+			);
 
-			return ds;
+            return ds;
 		}
 	}
 }

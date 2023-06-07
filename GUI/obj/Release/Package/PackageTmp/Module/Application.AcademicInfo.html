@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class }}"
 	ng-controller="application.academicInfoCtrl as appaca"
 	ng-show="
 		$appServ.isUser &&
@@ -29,10 +30,16 @@
 		</div>
 		<div class="panel-body page-body">
 			<uib-tabset active="$academicInfoServ.activeTabIndex">
-				<uib-tab index="0" heading="{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu']) }}" ng-click="$academicInfoServ.tabSelect('curEdu')">
+				<uib-tab
+					index="0"
+					heading="{{ $appServ.getLabel(['application', 'academicInfo', 'curEdu']) }}"
+					ng-click="$academicInfoServ.tabSelect('curEdu')">
 					<div ng-include="$academicInfoServ.curEdu.template"></div>
 				</uib-tab>
-				<uib-tab index="1" heading="{{ $appServ.getLabel(['application', 'academicInfo', 'englishProficiency']) }}" ng-click="$academicInfoServ.tabSelect('englishProficiency')">
+				<uib-tab
+					index="1"
+					heading="{{ $appServ.getLabel(['application', 'academicInfo', 'englishProficiency']) }}"
+					ng-click="$academicInfoServ.tabSelect('englishProficiency')">
 					<div ng-include="$academicInfoServ.englishProficiency.template"></div>
 				</uib-tab>
 			</uib-tabset>

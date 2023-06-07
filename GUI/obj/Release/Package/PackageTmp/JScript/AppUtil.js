@@ -142,6 +142,9 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 
 		self.langTH = false;
 		self.langEN = false;
+		/*
+		self.pathAPI = "MUSAIS-OnlineApplication/API";
+		*/
 		self.pathAPI = "API";
 		self.showPreloading = true;
 		self.showView = false;
@@ -895,7 +898,6 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 			}
 
 			url += ("?ver=" + utilServ.dateTimeOnURL + param.params);
-
 			self.isActionValidateAuthen().then(function (result) {
 				if (result === true ||
 					requireSignIn === false) {

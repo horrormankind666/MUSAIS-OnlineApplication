@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.termServiceConsent.class + ' ' + $pageRouteServ.pageObject.termServiceConsent.privacyPolicy.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.termServiceConsent.class + ' ' + $pageRouteServ.pageObject.termServiceConsent.privacyPolicy.class }}"
 	ng-controller="termServiceConsent.privacyPolicyCtrl as tscppc"
 	ng-show="
 		$appServ.isUser &&
@@ -25,7 +26,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="panel-body page-body" ng-show="tscppc.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="tscppc.showForm">
 				<!--
 				<div class="{{ $appServ.labelStyle }} text-center bold blue f7">
 					Consent Form for Use and Disclosure of Student Information
@@ -33,7 +36,9 @@
 				-->
 				<div ng-include="tscppc.template"></div>				
 				<div class="btn-command text-center paddingTop10">
-					<button class="btn btn-primary" ng-click="tscppc.saveChange.action()">
+					<button
+						class="btn btn-primary"
+						ng-click="tscppc.saveChange.action()">
 						<span class="{{ $appServ.labelStyle }} regular white f11">
 							{{ $appServ.getLabel(['agree']) }}
 						</span>

@@ -244,7 +244,7 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 		self.getValue = function () {
 			var result = {
 				"package": appServ.setPackage([self.formField.email, self.formField.password]),
-				"verifyStatus": "N",
+				"verifyStatus": "Y",
 				"titlePrefixId": (self.formField.titlePrefixSelected.selected ? self.formField.titlePrefixSelected.selected.id : "N/A"),
 				"firstName": (self.formField.firstName ? self.formField.firstName : "N/A"),
 				"middleName": (self.formField.middleName ? self.formField.middleName : "N/A"),

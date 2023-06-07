@@ -1,4 +1,5 @@
-﻿<div class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class + ' ' + $pageRouteServ.pageObject.academicInfo.englishProficiency.class }}"
+﻿<div
+	class="{{ $pageRouteServ.pageObject.application.class + ' ' + $pageRouteServ.pageObject.academicInfo.class + ' ' + $pageRouteServ.pageObject.academicInfo.englishProficiency.class }}"
 	ng-controller="application.academicInfo.englishProficiencyCtrl as appeng"
 	ng-show="
 		$appServ.isUser &&
@@ -6,7 +7,9 @@
 	">
 	<div class="addedit dialogin">
 		<div class="panel noborder">
-			<div class="panel-body page-body" ng-show="appeng.showForm">
+			<div
+				class="panel-body page-body"
+				ng-show="appeng.showForm">
 				<div class="form">
 					<div class="form-row">
 						<div class="form-col label-col text-right {{ $appServ.labelStyle }} regular black f10">
@@ -16,7 +19,13 @@
 							<div class="checkbox-row">
 								<ul>
 									<li class="checkbox-col input-col">
-										<input icheck class="inputcheckbox" type="checkbox" name="notenglish" ng-model="appeng.formField.notEnglishSelected" />
+										<input
+											icheck
+											type="checkbox"
+											class="inputcheckbox"
+											name="notenglish"
+											ng-model="appeng.formField.notEnglishSelected"
+										/>
 									</li>
 								</ul>
 							</div>
@@ -27,11 +36,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'TOEFLScore']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox ui-number-mask="0" class="form-control inputbox font-en regular black f10" type="text" maxlength="3"
+							<input
+								enter
+								textbox
+								type="text"								
+								class="form-control inputbox font-en regular black f10"
+								maxlength="3"
+								ui-number-mask="0"
 								ng-disabled="appeng.isCheckedNotEnglish"
 								ng-model="appeng.formField.TOEFLScore"
 							/>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appeng.formValidate.showSaveError &&
 									!appeng.formValidate.isValid.TOEFLScore
@@ -47,12 +63,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'TOEFLType']) }}
 						</div>
 						<div class="form-col input-col">
-							<ui-select ng-model="appeng.formField.TOEFLTypeSelected.selected" theme="select2" ng-disabled="appeng.isCheckedNotEnglish">
+							<ui-select
+								theme="select2"
+								ng-model="appeng.formField.TOEFLTypeSelected.selected"
+								ng-disabled="appeng.isCheckedNotEnglish">
 								<ui-select-match placeholder="{{ $appServ.getLabel(['placeholder', 'TOEFLType']) }}">
 									<span class="form-control inputbox {{ $appServ.labelStyle }} regular black f10">
 										{{ $select.selected.name[$utilServ.lang] ? $select.selected.name[$utilServ.lang] : "" }}
 									</span>
-									<span clearselect class="clearselect lang font-en regular gray f10" ng-click="appeng.formField.TOEFLTypeSelected.selected = undefined">
+									<span
+										clearselect
+										class="clearselect lang font-en regular gray f10"
+										ng-click="appeng.formField.TOEFLTypeSelected.selected = undefined">
 										<i class="fa fa-times-circle"></i>
 									</span>
 								</ui-select-match>
@@ -61,13 +83,17 @@
 										{{ TOEFLType.name[$utilServ.lang] }}
 									</span>
 									<div ng-show="$utilServ.getSelectShowLoadMoreTemplate($index, $select.items, $select.search, appeng.formField.TOEFLType)">
-										<a class="{{ $appServ.labelStyle }} regular white f12 btn loadmore" href="javascript:void(0)" ng-click="$utilServ.getSelectFetchData($select, $event)">
+										<a
+											class="{{ $appServ.labelStyle }} regular white f12 btn loadmore"
+											href="javascript:void(0)"
+											ng-click="$utilServ.getSelectFetchData($select, $event)">
 											{{ $appServ.getLabel(['msgPreloading', 'loadMore']) }}
 										</a>
 									</div>
 								</ui-select-choices>
 							</ui-select>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appeng.formValidate.showSaveError &&
 									!appeng.formValidate.isValid.TOEFLType
@@ -83,11 +109,18 @@
 							{{ $appServ.getLabel(['application', 'table', 'IELTSResult']) }}
 						</div>
 						<div class="form-col input-col">
-							<input enter textbox ui-number-mask="1" class="form-control inputbox font-en regular black f10" type="text" maxlength="5"
+							<input
+								enter
+								textbox
+								type="text"
+								class="form-control inputbox font-en regular black f10"
+								maxlength="5"
+								ui-number-mask="1"
 								ng-disabled="appeng.isCheckedNotEnglish"
 								ng-model="appeng.formField.IELTSResult"
 							/>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appeng.formValidate.showSaveError &&
 									!appeng.formValidate.isValid.IELTSResult
@@ -104,13 +137,16 @@
 						</div>
 						<div class="form-col input-col">
 							<div class="textareabox {{ appeng.isCheckedNotEnglish == true ? 'disabled' : '' }}">
-								<textarea textbox class="form-control font-en regular black f10"
+								<textarea
+									textbox
+									class="form-control font-en regular black f10"
 									ng-disabled="appeng.isCheckedNotEnglish"
 									ng-model="appeng.formField.englishProficiencyOther"
 									ng-blur="appeng.formField.englishProficiencyOther = (appeng.formField.notEnglishSelected == true ? '' : appeng.formField.englishProficiencyOther)">
 								</textarea>
 							</div>
-							<div class="alert alert-danger"
+							<div
+								class="alert alert-danger"
 								ng-show="
 									appeng.formValidate.showSaveError &&
 									!appeng.formValidate.isValid.englishProficiencyOther
@@ -126,7 +162,10 @@
 						<div class="form-col input-col text-right nopadding-top nopadding-bottom">
 							<div class="btn-command">
 								<span>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary nomargin-left"
+										href="javascript:void(0)"
 										ng-disabled="!appeng.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);
@@ -134,7 +173,10 @@
 										">
 										{{ $appServ.getLabel(['save']) }}
 									</a>
-									<a enter class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary" href="javascript:void(0)"
+									<a
+										enter
+										class="{{ $appServ.labelStyle }} regular white f10 btn btn-primary"
+										href="javascript:void(0)"
 										ng-disabled="!appeng.isFormChanged"
 										ng-click="
 											$utilServ.doBlur($event);

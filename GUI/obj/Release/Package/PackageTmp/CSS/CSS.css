@@ -2004,3 +2004,56 @@ _:-webkit-full-screen,
 	padding: 10px 20px 10px 20px;
 }
 */
+.cc_div {
+  font-family: "Pridi";
+  font-weight: 300;
+}
+.cc_div #cm {
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  bottom: 1rem !important;
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.5);
+}
+.cc_div #cm.left {
+  left: 1rem;
+}
+.cc_div #c-bns {
+  justify-content: right;
+}
+.cc_div #c-txt {
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+.cc_div .c-bn {
+  height: 42px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border-radius: 50px;
+}
+.cc_div #s-cnt #s-hdr #s-ttl {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.cc_div #s-cnt #s-bl {
+  padding-top: 0.5rem !important;
+}
+.cc_div #s-cnt #s-bl .c-bl .desc .p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+}
+.cc_div #s-cnt #s-bl .c-bl.b-ex .title.b-bn .b-tl.exp {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.cc_div #s-cnt #s-bl .c-bl.b-ex .desc .p {
+  font-size: 1.25rem;
+}
+.cc_div #s-cnt #s-bns {
+  height: auto;
+  text-align: right;
+}
+.cc_div #s-cnt #s-bns #s-sv-bn {
+  display: none;
+}

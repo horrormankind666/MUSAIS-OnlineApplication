@@ -4,8 +4,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <History>True|2022-05-12T07:52:42.6985497Z;True|2022-05-12T13:24:43.4676899+07:00;True|2022-05-12T13:18:35.1222390+07:00;True|2022-05-12T13:18:23.8891113+07:00;False|2022-05-12T13:17:00.9550060+07:00;False|2022-05-12T13:13:57.4395056+07:00;False|2022-05-12T13:13:31.5372614+07:00;False|2022-05-12T13:05:28.5244823+07:00;False|2022-05-12T13:05:05.9105447+07:00;False|2022-05-12T13:04:20.9752697+07:00;False|2022-05-12T13:04:02.5437036+07:00;False|2022-05-12T13:02:54.4322783+07:00;</History>
+    <History>True|2023-06-06T08:21:39.6598223Z;True|2023-06-06T15:09:24.1073047+07:00;True|2022-05-12T14:52:42.6985497+07:00;True|2022-05-12T13:24:43.4676899+07:00;True|2022-05-12T13:18:35.1222390+07:00;True|2022-05-12T13:18:23.8891113+07:00;False|2022-05-12T13:17:00.9550060+07:00;False|2022-05-12T13:13:57.4395056+07:00;False|2022-05-12T13:13:31.5372614+07:00;False|2022-05-12T13:05:28.5244823+07:00;False|2022-05-12T13:05:05.9105447+07:00;False|2022-05-12T13:04:20.9752697+07:00;False|2022-05-12T13:04:02.5437036+07:00;False|2022-05-12T13:02:54.4322783+07:00;</History>
     <_PublishTargetUrl>D:\Programming\MUSAIS\OnlineApplication\GUI\Publish</_PublishTargetUrl>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
@@ -15,10 +16,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/30/2021 16:12:02</publishTime>
     </File>
     <File Include="bin/OnlineApplication.dll">
-      <publishTime>05/12/2022 13:24:43</publishTime>
+      <publishTime>06/06/2023 15:09:23</publishTime>
     </File>
     <File Include="bin/OnlineApplication.pdb">
-      <publishTime>05/12/2022 13:24:43</publishTime>
+      <publishTime>06/06/2023 15:09:23</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>04/30/2021 16:12:02</publishTime>
@@ -173,14 +174,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>04/30/2021 16:12:01</publishTime>
     </File>
+    <File Include="CookieConsentInit.js">
+      <publishTime>07/06/2022 14:34:17</publishTime>
+    </File>
     <File Include="CSS/CSS.css">
-      <publishTime>05/12/2022 14:51:32</publishTime>
+      <publishTime>07/06/2022 15:50:20</publishTime>
     </File>
     <File Include="CSS/CSS.min.css">
-      <publishTime>05/12/2022 14:51:32</publishTime>
+      <publishTime>07/06/2022 15:50:21</publishTime>
     </File>
     <File Include="CSS/CSS.scss">
-      <publishTime>05/12/2022 14:51:32</publishTime>
+      <publishTime>07/12/2022 18:34:41</publishTime>
     </File>
     <File Include="FileUpload/NoFile.png">
       <publishTime>04/30/2021 16:12:01</publishTime>
@@ -228,7 +232,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/30/2021 16:12:01</publishTime>
     </File>
     <File Include="index.html">
-      <publishTime>05/12/2022 11:25:34</publishTime>
+      <publishTime>07/06/2022 15:12:47</publishTime>
     </File>
     <File Include="index.js">
       <publishTime>04/30/2021 16:12:01</publishTime>
@@ -276,13 +280,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/10/2022 17:39:04</publishTime>
     </File>
     <File Include="JScript/AppUtil.js">
-      <publishTime>05/10/2022 17:53:05</publishTime>
+      <publishTime>06/06/2023 15:07:08</publishTime>
     </File>
     <File Include="JScript/Country.js">
       <publishTime>05/11/2022 10:00:49</publishTime>
     </File>
     <File Include="JScript/Dictionary.js">
-      <publishTime>05/12/2022 12:31:36</publishTime>
+      <publishTime>09/09/2022 13:42:59</publishTime>
     </File>
     <File Include="JScript/Discipline.js">
       <publishTime>05/11/2022 10:02:14</publishTime>
@@ -327,7 +331,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/11/2022 10:13:54</publishTime>
     </File>
     <File Include="JScript/User.CreateNewAccount.js">
-      <publishTime>05/11/2022 10:16:20</publishTime>
+      <publishTime>09/09/2022 13:48:30</publishTime>
     </File>
     <File Include="JScript/User.EditAccount.js">
       <publishTime>05/12/2022 14:33:22</publishTime>
@@ -336,73 +340,73 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/11/2022 12:09:07</publishTime>
     </File>
     <File Include="JScript/User.SignIn.js">
-      <publishTime>05/12/2022 14:33:17</publishTime>
+      <publishTime>06/06/2023 14:08:38</publishTime>
     </File>
     <File Include="JScript/YearStudy.js">
       <publishTime>05/11/2022 12:10:39</publishTime>
     </File>
     <File Include="Module/Application.AcademicInfo.CurEdu.html">
-      <publishTime>05/11/2022 13:40:44</publishTime>
+      <publishTime>05/19/2022 18:26:36</publishTime>
     </File>
     <File Include="Module/Application.AcademicInfo.EnglishProficiency.html">
-      <publishTime>05/11/2022 13:46:57</publishTime>
+      <publishTime>05/19/2022 18:50:09</publishTime>
     </File>
     <File Include="Module/Application.AcademicInfo.html">
-      <publishTime>05/11/2022 13:48:11</publishTime>
+      <publishTime>05/19/2022 18:50:54</publishTime>
     </File>
     <File Include="Module/Application.Declaration.html">
-      <publishTime>05/11/2022 13:58:46</publishTime>
+      <publishTime>05/19/2022 18:56:24</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.Contact.html">
-      <publishTime>05/11/2022 14:03:31</publishTime>
+      <publishTime>05/19/2022 19:20:09</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.EmergencyContact.html">
-      <publishTime>05/12/2022 12:24:20</publishTime>
+      <publishTime>05/19/2022 19:28:54</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.HomeAddress.html">
-      <publishTime>05/11/2022 14:17:36</publishTime>
+      <publishTime>05/19/2022 19:32:53</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.html">
-      <publishTime>05/11/2022 14:18:44</publishTime>
+      <publishTime>05/19/2022 19:34:01</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.MailingAddress.html">
-      <publishTime>05/11/2022 14:24:27</publishTime>
+      <publishTime>05/19/2022 19:40:26</publishTime>
     </File>
     <File Include="Module/Application.PersonalInfo.Profile.html">
-      <publishTime>05/11/2022 14:32:55</publishTime>
+      <publishTime>05/19/2022 19:48:44</publishTime>
     </File>
     <File Include="Module/Application.StudentInfo.html">
-      <publishTime>05/11/2022 14:48:12</publishTime>
+      <publishTime>05/19/2022 20:05:42</publishTime>
     </File>
     <File Include="Module/Application.UploadDocuments.html">
-      <publishTime>05/12/2022 12:48:19</publishTime>
+      <publishTime>05/19/2022 20:23:28</publishTime>
     </File>
     <File Include="Module/Application.View.html">
-      <publishTime>05/11/2022 23:12:30</publishTime>
+      <publishTime>05/19/2022 20:41:05</publishTime>
     </File>
     <File Include="Module/PrivacyPolicy.html">
-      <publishTime>05/12/2022 11:53:10</publishTime>
+      <publishTime>05/19/2022 20:42:18</publishTime>
     </File>
     <File Include="Module/TermServiceConsent.PrivacyPolicy.html">
-      <publishTime>05/12/2022 10:08:23</publishTime>
+      <publishTime>05/19/2022 20:43:07</publishTime>
     </File>
     <File Include="Module/User.ActivateAccount.html">
-      <publishTime>05/12/2022 10:13:14</publishTime>
+      <publishTime>05/19/2022 20:44:26</publishTime>
     </File>
     <File Include="Module/User.CreateNewAccount.html">
-      <publishTime>05/12/2022 10:26:24</publishTime>
+      <publishTime>05/19/2022 20:51:26</publishTime>
     </File>
     <File Include="Module/User.EditAccount.html">
-      <publishTime>05/12/2022 10:35:16</publishTime>
+      <publishTime>05/19/2022 20:57:37</publishTime>
     </File>
     <File Include="Module/User.RequestPassword.html">
-      <publishTime>05/12/2022 10:38:45</publishTime>
+      <publishTime>05/19/2022 21:00:36</publishTime>
     </File>
     <File Include="Module/User.SignIn.html">
-      <publishTime>05/12/2022 10:41:09</publishTime>
+      <publishTime>09/09/2022 16:03:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/12/2022 13:17:00</publishTime>
+      <publishTime>06/06/2023 15:09:23</publishTime>
     </File>
   </ItemGroup>
 </Project>

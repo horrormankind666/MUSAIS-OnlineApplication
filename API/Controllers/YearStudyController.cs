@@ -2,7 +2,7 @@
 =============================================
 Author      : <ยุทธภูมิ ตวันนา>
 Create date : <๑๒/๐๗/๒๕๖๑>
-Modify date : <๑๘/๐๙/๒๕๖๑>
+Modify date : <๐๖/๐๖/๒๕๖๖>
 Description : <คอนโทลเลอร์ข้อมูล Year of Study>
 =============================================
 */
@@ -18,18 +18,16 @@ namespace API.Controllers {
 		[Route("GetListData")]
 		[HttpGet]
 		public HttpResponseMessage GetListData() {
-			StudentService.StudentService ss = new StudentService.StudentService();
 			DataTable dt = new DataTable();
-			int i = 1;
 
 			dt.Columns.Add("id");
 			dt.Columns.Add("name");
 
-			for (i = 1; i <= 8; i++) {
+			for (int i = 1; i <= 8; i++) {
 				DataRow dr = dt.NewRow();
 
-				dr["id"]    = i.ToString();
-				dr["name"]  = (i.ToString() + ss.GetOrdinal(i.ToString()));
+				dr["id"] = i.ToString();
+				dr["name"] = (i.ToString() + iUtil.GetOrdinal(i.ToString()));
 
 				dt.Rows.Add(dr);
 			}
