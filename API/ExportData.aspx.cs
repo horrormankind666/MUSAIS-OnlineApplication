@@ -145,6 +145,8 @@ namespace API {
                 "         a.passportNumber, " +
                 "         convert(varchar, a.passportExpiryDate, 103) as passportExpiryDate, " +
                 "         m.disciplineNameEN, " +
+                "         (case when a.declarationA = 'Y' then a.declarationB else null end) as requireSpecialAssistance, " +
+		        "         (case when a.declarationE = 'Y' then a.declarationESpecify else null end) as dietaryRequirements, " +
                 "         a.submitStatus, " +
                 "         a.cancelledStatus, " +
                 "         a.createDate " +
@@ -166,8 +168,6 @@ namespace API {
             SqlConnection conn = iUtil.ConnectDB(iUtil.bermudaConnectionString);
             SqlCommand cmd = new SqlCommand(query, conn);
             
-            DataSet ds = new DataSet();
-
             cmd.CommandType = CommandType.Text;
             cmd.CommandTimeout = 1000;
 
@@ -175,7 +175,7 @@ namespace API {
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-            ds = new DataSet();
+            DataSet ds = new DataSet();
             da.Fill(ds);
             
             cmd.Dispose();
@@ -211,6 +211,8 @@ namespace API {
                 new[] { "Passport Number", "passportNumber", "", "" },
                 new[] { "Passport Expiry Date", "passportExpiryDate", "", "" },
                 new[] { "Discipline", "disciplineNameEN", "", "" },
+                new[] { "Require Special Assistance", "requireSpecialAssistance", "", "" },
+                new[] { "Dietary Requirements", "dietaryRequirements", "", "" },
                 new[] { "Submit Status", "submitStatus", "", "" },
                 new[] { "Cancelled Status", "cancelledStatus", "", "" },
                 new[] { "Create Date", "createDate", "", "" }

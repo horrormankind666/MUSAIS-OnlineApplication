@@ -3,29 +3,36 @@ update Bermuda..sexApplication set
 	centralApprovalStatus = 'Y',
 	centralApprovalDate = getdate(),
 	centralApprovalBy = 'yutthaphoom.taw',
-	centralApprovalIp = '10.43.4.136',
+	centralApprovalIp = '10.62.127.184',
 	divisionApprovalStatus = 'Y',
 	divisionApprovalDate = getdate(),
 	divisionApprovalBy = 'yutthaphoom.taw',
-	divisionApprovalIp ='10.43.4.136'
+	divisionApprovalIp ='10.62.127.184'
 where	(id in (
-			'A202200022',
-			'A202200054',
-			'A202200058',
-			'A202200021',
-			'A202200055',
-			'A202200036',
-			'A202200061',
-			'A202200031',
-			'A202200059',
-			'A202200048',
-			'A202200057',
-			'A202200019',
-			'A202200060',
-			'A202200033',
-			'A202200056',
-			'A202200025',
-			'A202200062'
+			'A202300023',
+			'A202300029',
+			'A202300030',
+			'A202300031',
+			'A202300032',
+			'A202300035',
+			'A202300042',
+			'A202300045',
+			'A202300046',
+			'A202300047',
+			'A202300048',
+			'A202300050',
+			'A202300056',
+			'A202300057',
+			'A202300058',
+			'A202300118',
+			'A202300119',
+			'A202300120',
+			'A202300121',
+			'A202300143',
+			'A202300158',
+			'A202300163',
+			'A202300173',
+			'A202300182'
 		))
 
 select	sexapp.id,
@@ -195,46 +202,55 @@ where	(sexapp.id in (
 			'A202100039'
 		))
 
-select	sexapp.id,
-		sexapp.sexUserId,
-		sexusr.username,
-		sexusr.password,
-		sexapp.applicationStatus,
-		sexapp.perTitlePrefixId,
-		isnull(sexapp.firstName, '') as firstNameTH,
-		isnull(sexapp.middleName, '') as middleNameTH,
-		isnull(sexapp.lastName, '') as lastNameTH,
-		isnull(sexapp.firstName, '') as firstNameEN,
-		isnull(sexapp.middleName, '') as middleNameEN,
-		isnull(sexapp.lastName, '') as lastNameEN,		
-		pergus.enGenderInitials as genderInitialsEN,
-		sexapp.passportNumber,
-		(case when (sexapp.birthDate is not null) then (substring(convert(varchar, sexapp.birthDate, 103),1, 6) + convert(varchar, (year(sexapp.birthDate) + 543))) else null end) as birthDateTH
-from	Bermuda..sexApplication as sexapp with(nolock) inner join
-		Bermuda..sexUser as sexusr with(nolock) on sexapp.sexUserId = sexusr.id left join
-		Infinity..perGender as pergus with(nolock) on sexapp.perGenderId = pergus.id
+select	a.id,
+		a.sexUserId,
+		b.username,
+		b.password,
+		a.applicationStatus,
+		a.perTitlePrefixId,
+		(isnull(a.firstName, '') + ' ' + (case when (len(isnull(a.middleName, '')) > 0) then (a.middleName + ' ') else '' end)) as firstNameTH, 
+		'' as middleNameTH,
+		isnull(a.lastName, '') as lastNameTH,
+		(isnull(a.firstName, '') + ' ' + (case when (len(isnull(a.middleName, '')) > 0) then (a.middleName + ' ') else '' end)) as firstNameEN, 
+		'' as middleNameEN,
+		isnull(a.lastName, '') as lastNameEN,		
+		c.enGenderInitials as genderInitialsEN,
+		a.passportNumber,
+		(case when (a.birthDate is not null) then (substring(convert(varchar, a.birthDate, 103),1, 6) + convert(varchar, (year(a.birthDate) + 543))) else null end) as birthDateTH,
+		d.isoCountryCodes3Letter
+from	Bermuda..sexApplication as a with(nolock) inner join
+		Bermuda..sexUser as b with(nolock) on a.sexUserId = b.id left join
+		Infinity..perGender as c with(nolock) on a.perGenderId = c.id left join
+		Infinity..perNationality as d with(nolock) on a.perNationalityId = d.id
 where	(applicationStatus = 'AA') and
 		(centralApprovalStatus = 'Y') and
 		(divisionApprovalStatus = 'Y') and
 		(
-			sexapp.id in (
-				'A202200022',
-				'A202200054',
-				'A202200058',
-				'A202200021',
-				'A202200055',
-				'A202200036',
-				'A202200061',
-				'A202200031',
-				'A202200059',
-				'A202200048',
-				'A202200057',
-				'A202200019',
-				'A202200060',
-				'A202200033',
-				'A202200056',
-				'A202200025',
-				'A202200062'
+			a.id in (
+				'A202300023',
+				'A202300029',
+				'A202300030',
+				'A202300031',
+				'A202300032',
+				'A202300035',
+				'A202300042',
+				'A202300045',
+				'A202300046',
+				'A202300047',
+				'A202300048',
+				'A202300050',
+				'A202300056',
+				'A202300057',
+				'A202300058',
+				'A202300118',
+				'A202300119',
+				'A202300120',
+				'A202300121',
+				'A202300143',
+				'A202300158',
+				'A202300163',
+				'A202300173',
+				'A202300182'
 			)
 		)
 
