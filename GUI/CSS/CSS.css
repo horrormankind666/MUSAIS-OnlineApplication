@@ -918,6 +918,19 @@ main footer:not(.slideleftactive) {
     font-size: 20px;
   }
 }
+.turnstile {
+  display: none;
+}
+
+.turnstile-container {
+  height: 65px;
+}
+
+.turnstile-container iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .signin .panel {
   width: 400px;
   padding: 0 10px 0 10px;

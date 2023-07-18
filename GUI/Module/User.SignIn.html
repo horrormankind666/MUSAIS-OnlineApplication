@@ -55,13 +55,17 @@
 							ng-model="usrsgn.formField.password"
 						/>
 					</div>
-				</div>
+				</div>				
+			</div>
+			<div class="btn-command turnstile">
+				<div class="turnstile-container"></div>
 			</div>
 			<div class="btn-command text-center">
 				<a
 					enter
-					class="btn btn-block btn-primary nomargin-top nomargin-left"
+					class="signin-btn btn btn-block btn-primary nomargin-top nomargin-left"
 					href="javascript:void(0)"
+					disabled
 					ng-click="
 						$utilServ.doBlur($event);
 						usrsgn.signin.action()
@@ -106,3 +110,20 @@
 		</div>
 	</div>
 </div>
+<script>
+	function onloadTurnstileCallback() {
+		console.debug("Turnstile called");
+
+		turnstile.render(".signin .turnstile-container", {
+			sitekey: "0x4AAAAAAAHergPsnEF50Q_Z",
+			/*
+            sitekey: "0x4AAAAAAAHerNlfGdqs6cN9",
+			*/
+			theme: "light",
+			callback: function (token) {
+				$(".signin .turnstile").show();
+				$(".signin .signin-btn").removeAttr("disabled");
+			}
+		});
+	}
+</script>
