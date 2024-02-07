@@ -294,7 +294,16 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 				EN: "Create New Account",
 				infoImportantRecommendMsg: {
 					TH: "",
-					EN: "Click \"SAVE\" we send you an email to make sure it was really you who entered the email address in form. Either click on the link in the email we sent you to verify your account."
+					EN: "<div class='error-list'>" +
+						"	<ul>" +
+						"		<li>" +
+						"			Click \"SAVE\" we send you an email to make sure it was really you who entered the email address in form. Either click on the link in the email we sent you to verify your account." +
+						"		</li>" +
+						"		<li>" +
+						"			Please provide your name exactly as it appears on your passport.This ensures accuracy in the information appeares on the transcript." +
+						"		</li>" +
+						"	</ul>" +
+						"</div>"
 				},
 				infoImportantSuccessMsg: {
 					TH: "",
@@ -387,7 +396,16 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 				EN: "Edit Your Account",
 				infoImportantRecommendMsg: {
 					TH: "",
-					EN: "Click \"SAVE\" we send you an email to make sure it was really you who entered the email address in form."
+					EN: "<div class='error-list'>" +
+						"	<ul>" +
+						"		<li>" +
+						"			Click \"SAVE\" we send you an email to make sure it was really you who entered the email address in form." +
+						"		</li>" +
+						"		<li>" +
+						"			Please provide your name exactly as it appears on your passport.This ensures accuracy in the information appeares on the transcript." +
+						"		</li>" +
+						"	</ul>" +
+						"</div>"
 				},
 				save: {
 					TH: "",
@@ -577,7 +595,17 @@ Description : <รวมรวบฟังก์ชั่นใช้งาน�
 						EN: "Profile",
 						infoImportantRecommendMsg: {
 							TH: "",
-							EN: "As shown in your passport or identity card."
+							EN: "<div class='error-list'>" +
+								"	<ul>" +
+								"		<li>" +
+								"			As shown in your passport or identity card." +
+								"		</li>" +
+								"		<li>" +
+								"			Please provide your name exactly as it appears on your passport.This ensures accuracy in the information appeares on the transcript." +
+								"		</li>" +			
+								"	</ul>" +
+								"</div>"
+
 						},
 						save: {
 							titlePrefixError: {

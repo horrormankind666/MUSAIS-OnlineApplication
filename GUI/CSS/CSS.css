@@ -518,7 +518,8 @@ body.modal-open main header nav.navbar .navbar-header {
   min-height: 39px;
 }
 
-.tab-content .alert.alert-info .error-list ul li:before {
+.tab-content .alert.alert-info .error-list ul li:before,
+.alert.alert-warning .error-list ul li:before {
   color: inherit;
 }
 
